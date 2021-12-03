@@ -1,0 +1,30 @@
+{
+  "users": [],
+  "boards": [
+    {
+      "title": "Autotest board",
+      "columns": [
+          {
+              "title": "Backlog",
+              "order": 1
+          },
+          {
+              "title": "Sprint",
+              "order": 2
+          }
+      ],
+      "id": "61d6cc02-b406-4414-909d-ea5af246a5bd"
+  }
+  ],
+  "tasks": [
+    {
+      "id": "0ba3c0a1-1ceb-4485-a1f8-03d88eb5c54b",
+      "title": "Autotest task",
+      "order": 0,
+      "description": "Lorem ipsum",
+      "userId": null,
+      "boardId": "61d6cc02-b406-4414-909d-ea5af246a5bd",
+      "columnId": null
+    }
+  ]
+}

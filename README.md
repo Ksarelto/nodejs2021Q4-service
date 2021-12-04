@@ -11,7 +11,7 @@
 git clone {repository URL}
 ```
 
-## Checkout to develop branc
+## Checkout to develop branch
 
 ```
 git checkout develop-REST-service

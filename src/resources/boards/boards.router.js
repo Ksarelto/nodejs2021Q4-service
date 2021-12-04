@@ -1,4 +1,6 @@
 const Router = require('koa-router');
+const { statusCodes } = require('../../common/constants.js');
+const { successResponse, errorResponse } = require('../../common/utils.js');
 const boardsService = require('./boards.service.js');
 
 const boardRouter = new Router();
@@ -6,11 +8,9 @@ const boardRouter = new Router();
 boardRouter.get('/boards', async (ctx) => {
   try {
     const boards = await boardsService.getAllBoards();
-    ctx.res.writeHead(200, { 'Content-Type': 'application/json' });
-    ctx.body = JSON.stringify(boards);
+    successResponse(ctx, boards, statusCodes.successCode);
   } catch (err) {
-    ctx.response.status = 500;
-    ctx.body = err.message;
+    errorResponse(ctx, err, statusCodes.internalError);
   }
 });
 
@@ -18,11 +18,9 @@ boardRouter.get('/boards/:boardId', async (ctx) => {
   try {
     const param = ctx.params.boardId;
     const board = await boardsService.getOneBoard(param);
-    ctx.res.writeHead(200, { 'Content-Type': 'application/json' });
-    ctx.body = JSON.stringify(board);
+    successResponse(ctx, board, statusCodes.successCode);
   } catch (err) {
-    ctx.response.status = 404;
-    ctx.body = err.message;
+    errorResponse(ctx, err, statusCodes.notFound);
   }
 });
 
@@ -30,11 +28,9 @@ boardRouter.post('/boards', async (ctx) => {
   try {
     const { body } = ctx.request;
     const board = await boardsService.addBoard(body);
-    ctx.res.writeHead(201, { 'Content-Type': 'application/json' });
-    ctx.body = JSON.stringify(board);
+    successResponse(ctx, board, statusCodes.successCreate);
   } catch (err) {
-    ctx.response.status = 500;
-    ctx.body = err.message;
+    errorResponse(ctx, err, statusCodes.internalError);
   }
 });
 
@@ -43,11 +39,9 @@ boardRouter.put('/boards/:boardId', async (ctx) => {
     const id = ctx.params.boardId;
     const { body } = ctx.request;
     const board = await boardsService.updateBoard(id, body);
-    ctx.res.writeHead(200, { 'Content-Type': 'application/json' });
-    ctx.body = JSON.stringify(board);
+    successResponse(ctx, board, statusCodes.successCode);
   } catch (err) {
-    ctx.response.status = 500;
-    ctx.body = err.message;
+    errorResponse(ctx, err, statusCodes.internalError);
   }
 });
 
@@ -55,11 +49,9 @@ boardRouter.delete('/boards/:boardId', async (ctx) => {
   try {
     const id = ctx.params.boardId;
     const board = await boardsService.deleteBoard(id);
-    ctx.res.writeHead(204, { 'Content-Type': 'application/json' });
-    ctx.body = JSON.stringify(board);
+    successResponse(ctx, board, statusCodes.successDelete);
   } catch (err) {
-    ctx.response.status = 500;
-    ctx.body = err.message;
+    errorResponse(ctx, err, statusCodes.internalError);
   }
 });
 

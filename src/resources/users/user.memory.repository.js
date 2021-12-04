@@ -1,4 +1,5 @@
 const db = require('../../../db/db.json');
+const { checkExistence } = require('../../common/utils');
 
 const getAll = async () => {
   const allUsers = await db.users;
@@ -18,8 +19,7 @@ const addUser = async (data) => {
 const updateUser = async (id, data) => {
   let updatedUser;
   const { users } = await db;
-  const searchedUser = users.find((user) => user.id === id);
-  if (!searchedUser) throw new Error('User with such id is not defined');
+  checkExistence(users, id, 'User');
   const updatedUsers = users.map((user) => {
     if (user.id === id) {
       updatedUser = { ...data, id: user.id };
@@ -34,8 +34,7 @@ const updateUser = async (id, data) => {
 
 const deleteUser = async (id) => {
   const { users, tasks } = await db;
-  const deletedUser = users.find((user) => user.id === id);
-  if (!deletedUser) throw new Error('User with such id is not defined');
+  checkExistence(users, id, 'User');
   const newUsersArray = users.filter((user) => user.id !== id);
   const newTasksArray = tasks.map((task) => {
     if (task.userId === id) return { ...task, userId: null };

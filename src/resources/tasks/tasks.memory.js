@@ -1,16 +1,17 @@
 const db = require('../../../db/db.json');
+const { checkExistence } = require('../../common/utils');
 
 const getAllTasks = async (id) => {
-  const allTasks = await db.tasks;
-  const choosedTasks = allTasks.filter((task) => task.boardId === id);
+  const { boards, tasks } = await db;
+  checkExistence(boards, id, 'Board');
+  const choosedTasks = tasks.filter((task) => task.boardId === id);
   return choosedTasks;
 };
 
 const getOneTask = async (params) => {
-  const foundedTask = await db.tasks.find(
-    (task) => task.id === params.taskId && task.boardId === params.boardId
-  );
-  if (!foundedTask) throw new Error('Board is not exist');
+  const { boards, tasks } = await db;
+  checkExistence(boards, params.boardId, 'Board');
+  const foundedTask = checkExistence(tasks, params.taskId, 'Task');
   return foundedTask;
 };
 
@@ -21,9 +22,9 @@ const addTask = async (id, data) => {
 
 const updateTask = async (params, data) => {
   let updatedTask;
-  const { tasks } = await db;
-  const searchedTask = tasks.find((task) => task.boardId === params.boardId);
-  if (!searchedTask) throw new Error('Board with such id is not defined');
+  const { tasks, boards } = await db;
+  checkExistence(boards, params.boardId, 'Board');
+  checkExistence(tasks, params.taskId, 'Task');
   const updatedTasks = tasks.map((task) => {
     if (task.id === params.taskId) {
       updatedTask = { ...data, id: task.id };
@@ -36,11 +37,11 @@ const updateTask = async (params, data) => {
   return updatedTask;
 };
 
-const deleteTask = async (id) => {
-  const { tasks } = await db;
-  const deletedTask = tasks.find((task) => task.id === id);
-  if (!deletedTask) throw new Error('Task with such id is not defined');
-  const newTasksArray = tasks.filter((task) => task.id !== id);
+const deleteTask = async (params) => {
+  const { tasks, boards } = await db;
+  checkExistence(boards, params.boardId, 'Board');
+  checkExistence(tasks, params.taskId, 'Task');
+  const newTasksArray = tasks.filter((task) => task.id !== params.taskId);
   db.tasks = newTasksArray;
   return newTasksArray;
 };

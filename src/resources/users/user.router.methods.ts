@@ -9,7 +9,7 @@ import { toResponse, successResponse, errorResponse } from '../../common/utils';
 import { getAll, getOne, addUser, updateUser, deleteUser} from './user.service';
 
 /**
- * Midlware to get HTTP method
+ * Function implement GET method of userRouter(get all users)
  * @param ctx - Context object
  * @returns - Undefined
  */
@@ -27,7 +27,7 @@ export const userRouterGetAllRequest = async (ctx: Context) => {
 }
 
 /**
- * Midllware to get HTTP method
+ * Function implement GET method of userRouter (get one User)
  * @param ctx - Context object
  * @returns - Undefined
  */
@@ -43,7 +43,7 @@ export const userRouterGetOneRequest = async (ctx: Context) => {
 }
 
 /**
- * Midllware to post HTTP method
+ * Function implement POST method of userRouter
  * @param ctx - Context object
  * @returns - Undefined
  */
@@ -59,7 +59,7 @@ export const userRouterPostRequest = async (ctx: Context) => {
 }
 
 /**
- * Midllware to put HTTP method
+ * Function implement PUT method of userRouter
  * @param ctx - Context object
  * @returns - Undefined
  */
@@ -76,7 +76,7 @@ export const userRouterPutRequest = async (ctx: Context) => {
 }
 
 /**
- * Midllware to delete HTTP method
+ * Function implement DELETE method of userRouter
  * @param ctx - Context object
  * @returns - Undefined
  */

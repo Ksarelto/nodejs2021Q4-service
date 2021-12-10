@@ -11,7 +11,16 @@ import {
   userRouterPutRequest 
 } from './user.router.methods';
 
+/**
+ * This constant is a Router object
+ * @constant userRouter
+ */
+
 export const userRouter = new Router();
+
+/**
+ * HTTP methods of Router object
+ */
 
 userRouter.get('/users', userRouterGetAllRequest)
           .get('/users/:userId', userRouterGetOneRequest)

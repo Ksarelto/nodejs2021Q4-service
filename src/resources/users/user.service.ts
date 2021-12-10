@@ -17,6 +17,7 @@ export const getAll = () => getAllDB();
 /**
  * This function validate id and return the User object
  * @param id - The id of User
+ * @throws Throw Error if invalid id
  * @returns The founded User object or throw exeption
  */
 
@@ -43,6 +44,7 @@ export const addUser = async (data: User) => {
  * This function validate id, pass id and data to updateUserDB to update User object, return updated User object
  * @param id - The id of User object
  * @param data - Data for update User object
+ * @throws Throw Error if invalid id
  * @returns The updated User object
  */
 
@@ -55,6 +57,7 @@ export const updateUser = async (id: string, data: User) => {
 /**
  * This function validate User id , pass id to deleteUserDB and return array of Users
  * @param id - The id of User object
+ * @throws Throw Error if invalid id
  * @returns The new User array
  */
 export const deleteUser = async (id: string) => {

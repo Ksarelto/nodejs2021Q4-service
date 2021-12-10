@@ -7,8 +7,8 @@ import { Tasks, User } from '../../common/types';
 import { checkExistence } from '../../common/utils';
 
 /**
- * This function get all users from database and return them
- * @returns Array of Users
+ * This function get all Users objects from database and return them
+ * @returns Array of Users objects
  */
 
 export const getAllDB = async () => {
@@ -17,9 +17,10 @@ export const getAllDB = async () => {
 };
 
 /**
- * This function get one User from database and return him
- * @param id - Id of the User
- * @returns The User
+ * This function get one User object from database and return him
+ * @param id - Id of the User object
+ * @throw Throws Error if User object is not found
+ * @returns The User object
  */
 
 export const getOneDB = async (id: string) => {
@@ -64,8 +65,8 @@ export const updateUserDB = async (id: string, data: User) => {
 
 /**
  * This function delete the user from database and return new array of Users
- * @param id - Is an id of the User
- * @returns The new array of Users
+ * @param id - Is an id of the User object
+ * @returns The new array of Users objects
  */
 
 export const deleteUserDB = async (id: string) => {

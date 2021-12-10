@@ -8,7 +8,8 @@ import { successResponse, errorResponse } from '../../common/utils';
 import { getAllBoards, getOneBoard, addBoard, updateBoard, deleteBoard} from './boards.service';
 
 /**
- * Function implement GET method of boardRouter
+ * Function implement GET method of boardRouter (get all boards)
+ * @async
  * @param ctx - Router context
  * @returns Undefined
  */
@@ -23,7 +24,8 @@ export const boardRouterGetAll = async (ctx: Context) => {
 }
 
 /**
- * Function implement GET method of boardRouter
+ * Function implement GET method of boardRouter (get one board)
+ * @async
  * @param ctx - Router context
  * @returns Undefined
  */
@@ -40,6 +42,7 @@ export const boardRouterGetOne = async (ctx: Context) => {
 
 /**
  * Function implement POST method of boardRouter
+ * @async
  * @param ctx - Router context
  * @returns Undefined
  */
@@ -56,6 +59,7 @@ export const boardRouterPost = async (ctx: Context) => {
 
 /**
  * Function implement PUT method of boardRouter
+ * @async
  * @param ctx - Router context
  * @returns Undefined
  */
@@ -73,6 +77,7 @@ export const boardRouterPut = async (ctx: Context) => {
 
 /**
  * Function implement DELETE method of boardRouter
+ * @async
  * @param ctx - Router context
  * @returns Undefined
  */

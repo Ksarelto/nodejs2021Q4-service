@@ -9,6 +9,7 @@ import { getAllBoardsDB, getOneBoardDB, addBoardDB, updateBoardDB, deleteBoardDB
 
 /**
  * This function return the array of Boards objects
+ * @async
  * @returns The array of Boards objects
  */
 
@@ -16,7 +17,9 @@ export const getAllBoards = () => getAllBoardsDB();
 
 /**
  * This function validate the id, pass the id to getOneBoardDB func and return The Board object
+ * @async
  * @param id The id of Board object
+ * @throw Throws Error if invalid id
  * @returns The Board object
  */
 
@@ -28,6 +31,7 @@ export const getOneBoard = async (id: string) => {
 
 /**
  * This function generate id, create new Board object, pass him to addBoardDB, return added Board object
+ * @async
  * @param data The data for new Board object
  * @returns The Board object
  */
@@ -41,8 +45,10 @@ export const addBoard = async (data: Boards) => {
 
 /**
  * This function validate id, padd id and data to updateBoard func, return updated Board object
+ * @async
  * @param id The id of Board object
  * @param data Data to update Board
+ * @throw Throws Error if invalid id
  * @returns The updated Board object
  */
 
@@ -54,7 +60,9 @@ export const updateBoard = async (id: string, data: Boards) => {
 
 /**
  * This function validate the id, pass id to deletedBoardDB func, return new array of Boards objects
+ * @async
  * @param id The id of Board object
+ * @throw Throws Error if invalid id
  * @returns The new array of Boards objects
  */
 

@@ -7,8 +7,9 @@ import { Boards, Tasks } from '../../common/types';
 import { checkExistence } from '../../common/utils';
 
 /**
- * This function get all boards from database and return them
- * @returns The array of boards objects
+ * This function get all Boards objects from database and return them
+ * @async
+ * @returns The array of Boards objects
  */
 
 export const getAllBoardsDB = async (): Promise<Boards[]> => {
@@ -17,9 +18,10 @@ export const getAllBoardsDB = async (): Promise<Boards[]> => {
 };
 
 /**
- * This function find the board by id and return it
- * @param id - Id of board object
- * @returns The searched board object
+ * This function find the Board object by id and return it
+ * @async
+ * @param id - Id of Board object
+ * @returns The searched Board object
  */
 
 export const getOneBoardDB = async (id: string): Promise<Boards> => {
@@ -30,6 +32,7 @@ export const getOneBoardDB = async (id: string): Promise<Boards> => {
 
 /**
  * This function add new Board object to database and return the object
+ * @async
  * @param data - The Board object
  * @returns The Board object
  */
@@ -41,9 +44,10 @@ export const addBoardDB = async (data: Boards): Promise<Boards> => {
 
 /**
  * This function find Board object by id and update it with data parametr and return the updated Board object 
- * @param id - The Board id
- * @param data - The Board object
- * @returns The updated Board object
+ * @async
+ * @param id - The Board object id
+ * @param data - Params to update Board object
+ * @returns  Updated Board object
  */
 
 export const updateBoardDB = async (id: string, data: Boards): Promise<Boards | undefined> => {
@@ -63,9 +67,10 @@ export const updateBoardDB = async (id: string, data: Boards): Promise<Boards | 
 };
 
 /**
- * This function find board by id, delete it from database, return the updated array of Boards
- * @param id - The Board id
- * @returns The Boards array without deleted Board
+ * This function find Board object by id, delete it from database, return the updated array of Boards objects
+ * @async
+ * @param id - The Board object id
+ * @returns The Boards objects array without deleted Board
  */
 
 export const deleteBoardDB = async (id: string): Promise<Boards[]> => {

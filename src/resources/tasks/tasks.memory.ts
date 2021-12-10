@@ -6,10 +6,10 @@ import {db} from '../../../db/db';
 import { checkExistence } from '../../common/utils';
 
 /**
- * This function get boards and tasks from database, find tasks with the same boardId, return them
+ * This function get Boards and Tasks from database, find Tasks with the same boardId, return them
  * @async
  * @param id - The boardId of Task object
- * @returns The array of tasks with same boardId
+ * @returns The array of Tasks objects with same boardId
  */
 
 export const getAllTasksDB = async (id: string) => {
@@ -20,7 +20,7 @@ export const getAllTasksDB = async (id: string) => {
 };
 
 /**
- * This function get boards and tasks from database, find task with the taskId, return it
+ * This function get Boards and Tasks from database, find Task object with the taskId, return it
  * @async
  * @param params - The object with boardId and taskId
  * @returns The searched Task object
@@ -75,7 +75,7 @@ export const updateTaskDB = async (params: Record<string, string>, data: Tasks) 
  * This function find by id in database and delete Task object, return new array of Tasks
  * @async
  * @param params - The object with boardId and taskId
- * @returns New array of tasks
+ * @returns New array of Tasks objects
  */
 
 export const deleteTaskDB = async (params: Record<string, string>) => {

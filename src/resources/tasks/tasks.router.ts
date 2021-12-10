@@ -4,7 +4,16 @@
 import Router from 'koa-router';
 import { taskRouterDelete, taskRouterGetAll, taskRouterGetOne, taskRouterPost, taskRouterPut } from './task.router.methods';
 
+/**
+ * This constant is a Router object
+ * @constant tasksRouter
+ */
+
 export const tasksRouter = new Router();
+
+/**
+ * HTTP methods of tasksRouter
+ */
 
 tasksRouter.get('/boards/:boardId/tasks', taskRouterGetAll)
            .get('/boards/:boardId/tasks/:taskId', taskRouterGetOne)

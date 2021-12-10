@@ -10,7 +10,8 @@ import { getAllTasksDB, getOneTaskDB, addTaskDB, updateTaskDB, deleteTaskDB} fro
  * This function validate id and return array of Tasks objects
  * @async
  * @param id The boardId of Task object
- * @returns The array of Task objects
+ * @throw Throws Error if invalid id
+ * @returns The array of Tasks objects
  */
 
 export const getAllTasks = async (id: string) => {
@@ -23,6 +24,8 @@ export const getAllTasks = async (id: string) => {
  * This function validate params object, return the founded by id Task object
  * @async
  * @param params The object with boardId and taskId
+ * @throw Throws Error if invalid boardId
+ * @throw Throws Error if invalid taskId
  * @returns The Task object
  */
 
@@ -38,6 +41,7 @@ export const getOneTask = async (params: Record<string, string>) => {
  * @async
  * @param id The boardId of Task object
  * @param data Data to create new Task
+ * @throw Throws Error if invalid id
  * @returns Created Task object
  */
 
@@ -54,6 +58,8 @@ export const addTask = async (id: string, data: Tasks) => {
  * @async
  * @param params The object with boardId and taskId
  * @param data Data to update Task object
+ * @throw Throws Error if invalid boardId
+ * @throw Throws Error if invalid taskId
  * @returns The updated Task object
  */
 
@@ -69,6 +75,8 @@ export const updateTask = async (params: Record<string, string>, data: Tasks) =>
  * This function validate params object, return new array of Task objects
  * @async
  * @param params The object with boardId and taskId
+ * @throw Throws Error if invalid boardId
+ * @throw Throws Error if invalid taskId
  * @returns The new array of Task objects
  */
 

@@ -7,7 +7,7 @@ import { successResponse, errorResponse } from '../../common/utils';
 import { getAllTasks, getOneTask, addTask, updateTask, deleteTask} from './tasks.service';
 
 /**
- * Function implement GET method of taskRouter
+ * Function implement GET method of taskRouter (get all tasks)
  * @async
  * @param ctx - Router context
  * @returns Undefined
@@ -24,7 +24,7 @@ export const taskRouterGetAll = async (ctx: Context) => {
 }
 
 /**
- * Function implement GET method of taskRouter
+ * Function implement GET method of taskRouter (get one task)
  * @async
  * @param ctx - Router context
  * @returns Undefined

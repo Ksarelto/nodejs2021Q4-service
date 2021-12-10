@@ -34,6 +34,7 @@ export const validateID = (id: string) => {
  * @param arr - Array of Items
  * @param id - Id of searched item in array
  * @param name - Nmae of the Array of the Items
+ * @throws Error message if searchedItem is not find
  * @returns Searched Item or throw Error if item is undefined
  */
 

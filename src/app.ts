@@ -8,7 +8,7 @@ import { boardRouter } from './resources/boards/boards.router';
 import { tasksRouter } from './resources/tasks/tasks.router';
 
 /**
- * @alias Koa
+ * app is a class Koa
  */
 
 const app = new Koa();
@@ -28,6 +28,10 @@ app.use(async (ctx, next) => {
   }
   next();
 });
+
+/**
+ * This is use method that considers routes
+ */
 
 app.use(userRouter.routes()).use(userRouter.allowedMethods());
 app.use(boardRouter.routes()).use(boardRouter.allowedMethods());

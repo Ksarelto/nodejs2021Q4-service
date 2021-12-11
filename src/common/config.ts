@@ -42,5 +42,5 @@ dotenv.config();
  * @constant AUTH_MODE Considered authentication mode
  */
 
-  export const AUTH_MODE = process.env.AUTH_MODE === 'true';
+  export const {AUTH_MODE} = process.env;
 

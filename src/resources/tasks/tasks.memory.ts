@@ -26,10 +26,11 @@ export const getAllTasksDB = async (id: string) => {
  * @returns The searched Task object
  */
 
-export const getOneTaskDB = async (params:Record<string, string>) => {
+export const getOneTaskDB = async (params: Record<string, string>) => {
   const { boards, tasks } = await db;
-  checkExistence(boards, params["boardId"], 'Board');
-  const foundedTask = checkExistence(tasks, params["taskId"], 'Task');
+  const {boardId, taskId} = params;
+  checkExistence(boards, boardId, 'Board');
+  const foundedTask = checkExistence(tasks, taskId, 'Task');
   return foundedTask;
 };
 
@@ -41,7 +42,7 @@ export const getOneTaskDB = async (params:Record<string, string>) => {
  * @returns The new Task object
  */
 
-export const addTaskDB = async (data: Tasks) => {
+export const addTaskDB = async ( data: Tasks) => {
   await db.tasks.push(data);
   return data;
 };
@@ -57,10 +58,11 @@ export const addTaskDB = async (data: Tasks) => {
 export const updateTaskDB = async (params: Record<string, string>, data: Tasks) => {
   let updatedTask;
   const { tasks, boards } = await db;
-  checkExistence(boards, params["boardId"], 'Board');
-  checkExistence(tasks, params["taskId"], 'Task');
+  const {boardId, taskId} = params;
+  checkExistence(boards, boardId, 'Board');
+  checkExistence(tasks, taskId, 'Task');
   const updatedTasks = tasks.map((task: Tasks) => {
-    if (task.id === params["taskId"]) {
+    if (task.id === taskId) {
       updatedTask = { ...data, id: task.id };
       return updatedTask;
     }
@@ -80,9 +82,10 @@ export const updateTaskDB = async (params: Record<string, string>, data: Tasks) 
 
 export const deleteTaskDB = async (params: Record<string, string>) => {
   const { tasks, boards } = await db;
-  checkExistence(boards, params["boardId"], 'Board');
-  checkExistence(tasks, params["taskId"], 'Task');
-  const newTasksArray = tasks.filter((task: Tasks) => task.id !== params["taskId"]);
+  const {boardId, taskId} = params;
+  checkExistence(boards, boardId, 'Board');
+  checkExistence(tasks, taskId, 'Task');
+  const newTasksArray = tasks.filter((task: Tasks) => task.id !== taskId);
   db.tasks = newTasksArray;
   return newTasksArray;
 };

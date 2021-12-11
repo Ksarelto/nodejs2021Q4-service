@@ -26,16 +26,12 @@
     "airbnb-typescript/base",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:node/recommended",
-    "airbnb-base",
     "prettier"
   ],
   "rules": {
-    "node/no-missing-import": ["error", {
-        "allowModules": [],
-        "resolvePaths": ["src"],
-        "tryExtensions": [".ts"]
-    }],
+    "import/no-extraneous-dependencies": ["off"],
+    "dot-notation":"off",
+    "@typescript-eslint/dot-notation": ["error"],
     "linebreak-style": "off",
     "node/no-unsupported-features/es-syntax": "off",
     "no-underscore-dangle": "off",

@@ -22,7 +22,7 @@ export const toResponse = (user: User) => {
  * @returns If id valid return true, else false
  */
 
-export const validateID = (id: string) => {
+export const validateID = (id: string | undefined) => {
   if (id === undefined) return false;
   if (!id.match(/^[a-f\d]{8}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{12}$/g))
     return false;
@@ -38,7 +38,8 @@ export const validateID = (id: string) => {
  * @returns Searched Item or throw Error if item is undefined
  */
 
-export const checkExistence = <T extends SearchedArray>(arr: T[], id: string, name: string) => {
+export const checkExistence = <T extends SearchedArray>(arr: T[], id: string | undefined, name: string) => {
+  if(!id) throw new Error(`Id is not defined`);
   const searchedItem = arr.find((item) => item.id === id);
   if (!searchedItem) throw new Error(`${name} with such id is not defined`);
   return searchedItem;

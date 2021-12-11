@@ -30,8 +30,8 @@ export const getAllTasks = async (id: string) => {
  */
 
 export const getOneTask = async (params: Record<string, string>) => {
-  if (!validateID(params.boardId)) throw new Error('Invalid board id');
-  if (!validateID(params.taskId)) throw new Error('Invalid task id');
+  if (!validateID(params['boardId'])) throw new Error('Invalid board id');
+  if (!validateID(params['taskId'])) throw new Error('Invalid task id');
   const oneTask = await getOneTaskDB(params);
   return oneTask;
 };
@@ -49,7 +49,7 @@ export const addTask = async (id: string, data: Tasks) => {
   if (!validateID(id)) throw new Error('Invalid board id');
   const taskId = uuidv4();
   const newTask = { ...data, id: taskId, boardId: id };
-  const addedTask = await addTaskDB(id, newTask);
+  const addedTask = await addTaskDB(newTask);
   return addedTask;
 };
 
@@ -65,8 +65,8 @@ export const addTask = async (id: string, data: Tasks) => {
 
 
 export const updateTask = async (params: Record<string, string>, data: Tasks) => {
-  if (!validateID(params.boardId)) throw new Error('Invalid board id');
-  if (!validateID(params.taskId)) throw new Error('Invalid task id');
+  if (!validateID(params['boardId'])) throw new Error('Invalid board id');
+  if (!validateID(params['taskId'])) throw new Error('Invalid task id');
   const updatedTask = await updateTaskDB(params, data);
   return updatedTask;
 };
@@ -81,8 +81,8 @@ export const updateTask = async (params: Record<string, string>, data: Tasks) =>
  */
 
 export const deleteTask = async (params: Record<string, string>) => {
-  if (!validateID(params.boardId)) throw new Error('Invalid board id');
-  if (!validateID(params.taskId)) throw new Error('Invalid task id');
+  if (!validateID(params['boardId'])) throw new Error('Invalid board id');
+  if (!validateID(params['taskId'])) throw new Error('Invalid task id');
   const newTasksArray = await deleteTaskDB(params);
   return newTasksArray;
 };

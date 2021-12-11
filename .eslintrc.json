@@ -33,9 +33,10 @@
     "prettier"
   ],
   "rules": {
+    "dot-notation": "off",
+    "@typescript-eslint/dot-notation": "off",
     "node/no-missing-import": ["error", {
         "allowModules": [],
-        "resolvePaths": ["/path/to/a/modules/directory"],
         "tryExtensions": [".ts", ".json", ".node"]
     }],
     "linebreak-style": "off",

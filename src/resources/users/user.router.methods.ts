@@ -34,7 +34,7 @@ export const userRouterGetAllRequest = async (ctx: Context) => {
 
 export const userRouterGetOneRequest = async (ctx: Context) => {
   try {
-    const param = ctx.params.userId;
+    const param = ctx['params'].userId;
     const user = await getOne(param);
     successResponse(ctx, toResponse(user), StatusCodes.successCode);
   } catch (err) {
@@ -66,7 +66,7 @@ export const userRouterPostRequest = async (ctx: Context) => {
 
 export const userRouterPutRequest = async (ctx: Context) => {
   try {
-    const id = ctx.params.userId;
+    const id = ctx['params'].userId;
     const { body } = ctx.request;
     const response = await updateUser(id, body);
     successResponse(ctx, toResponse(response), StatusCodes.successCode);
@@ -83,7 +83,7 @@ export const userRouterPutRequest = async (ctx: Context) => {
 
 export const userRouterDeleteRequest = async (ctx: Context) => {
   try {
-    const id = ctx.params.userId;
+    const id = ctx['params'].userId;
     await deleteUser(id);
     successResponse(ctx, null, StatusCodes.successDelete);
   } catch (err) {

@@ -32,7 +32,7 @@ export const boardRouterGetAll = async (ctx: Context) => {
 
 export const boardRouterGetOne = async (ctx: Context) => {
   try {
-    const param = ctx.params.boardId;
+    const param = ctx['params'].boardId;
     const board = await getOneBoard(param);
     successResponse(ctx, board, StatusCodes.successCode);
   } catch (err) {
@@ -66,7 +66,7 @@ export const boardRouterPost = async (ctx: Context) => {
 
 export const boardRouterPut = async (ctx: Context) => {
   try {
-    const id = ctx.params.boardId;
+    const id = ctx['params'].boardId;
     const { body } = ctx.request;
     const board = await updateBoard(id, body);
     successResponse(ctx, board, StatusCodes.successCode);
@@ -84,7 +84,7 @@ export const boardRouterPut = async (ctx: Context) => {
 
 export const boardRouterDelete = async (ctx: Context) => {
   try {
-    const id = ctx.params.boardId;
+    const id = ctx['params'].boardId;
     const board = await deleteBoard(id);
     successResponse(ctx, board, StatusCodes.successDelete);
   } catch (err) {

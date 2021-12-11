@@ -15,7 +15,7 @@ import { getAllTasks, getOneTask, addTask, updateTask, deleteTask} from './tasks
 
 export const taskRouterGetAll = async (ctx: Context) => {
   try {
-    const params = ctx.params.boardId;
+    const params = ctx['params'].boardId;
     const tasks = await getAllTasks(params);
     successResponse(ctx, tasks, StatusCodes.successCode);
   } catch (err) {
@@ -32,7 +32,7 @@ export const taskRouterGetAll = async (ctx: Context) => {
 
 export const taskRouterGetOne = async (ctx: Context) => {
   try {
-    const parameters = ctx.params;
+    const parameters = ctx['params'];
     const task = await getOneTask(parameters);
     successResponse(ctx, task, StatusCodes.successCode);
   } catch (err) {
@@ -50,7 +50,7 @@ export const taskRouterGetOne = async (ctx: Context) => {
 export const taskRouterPost = async (ctx: Context) => {
   try {
     const { body } = ctx.request;
-    const id = ctx.params.boardId;
+    const id = ctx['params'].boardId;
     const task = await addTask(id, body);
     successResponse(ctx, task, StatusCodes.successCreate);
   } catch (err) {

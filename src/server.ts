@@ -2,7 +2,9 @@ import { PORT } from './common/config';
 import app from './app';
 
 /**
- * This method is starting listen the PORT
+ * Koa "listen" method is starting listen the PORT
+ * @param {string} PORT the name of listened port
+ * @param {callback} - callback that is called after port is listened
  */
 
 app.listen(PORT, () =>

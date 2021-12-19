@@ -10,11 +10,11 @@ import { getAllBoards, getOneBoard, addBoard, updateBoard, deleteBoard} from './
 /**
  * Function implement GET method of boardRouter (get all boards)
  * @async
- * @param ctx - Router context
- * @returns Undefined
+ * @param {Context} ctx - Router context
+ * @returns - undefined
  */
 
-export const boardRouterGetAll = async (ctx: Context) => {
+export const boardRouterGetAll = async (ctx: Context): Promise<void> => {
   try {
     const boards = await getAllBoards();
     successResponse(ctx, boards, StatusCodes.successCode);
@@ -26,11 +26,11 @@ export const boardRouterGetAll = async (ctx: Context) => {
 /**
  * Function implement GET method of boardRouter (get one board)
  * @async
- * @param ctx - Router context
- * @returns Undefined
+ * @param {Context} ctx - Router context
+ * @returns - undefined
  */
 
-export const boardRouterGetOne = async (ctx: Context) => {
+export const boardRouterGetOne = async (ctx: Context): Promise<void> => {
   try {
     const {params} = ctx;
     const param = params.boardId;
@@ -42,13 +42,13 @@ export const boardRouterGetOne = async (ctx: Context) => {
 }
 
 /**
- * Function implement POST method of boardRouter
+ * Function implement POST method of boardRouter (add new board to database)
  * @async
- * @param ctx - Router context
- * @returns Undefined
+ * @param {Context} ctx - Router context
+ * @returns - undefined
  */
 
-export const boardRouterPost = async (ctx: Context) => {
+export const boardRouterPost = async (ctx: Context): Promise<void> => {
   try {
     const { body } = ctx.request;
     const board = await addBoard(body);
@@ -59,13 +59,13 @@ export const boardRouterPost = async (ctx: Context) => {
 }
 
 /**
- * Function implement PUT method of boardRouter
+ * Function implement PUT method of boardRouter (update existed board)
  * @async
- * @param ctx - Router context
- * @returns Undefined
+ * @param {Context} ctx - Router context
+ * @returns - undefined
  */
 
-export const boardRouterPut = async (ctx: Context) => {
+export const boardRouterPut = async (ctx: Context): Promise<void> => {
   try {
     const {params} = ctx;
     const id = params.boardId;
@@ -78,13 +78,13 @@ export const boardRouterPut = async (ctx: Context) => {
 }
 
 /**
- * Function implement DELETE method of boardRouter
+ * Function implement DELETE method of boardRouter (delete one board)
  * @async
- * @param ctx - Router context
- * @returns Undefined
+ * @param {Context} ctx - Router context
+ * @returns - undefined
  */
 
-export const boardRouterDelete = async (ctx: Context) => {
+export const boardRouterDelete = async (ctx: Context): Promise<void> => {
   try {
     const {params} = ctx;
     const id = params.boardId;

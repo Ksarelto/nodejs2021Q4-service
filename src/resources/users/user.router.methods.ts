@@ -10,11 +10,12 @@ import { getAll, getOne, addUser, updateUser, deleteUser} from './user.service';
 
 /**
  * Function implement GET method of userRouter(get all users)
- * @param ctx - Context object
+ * @async
+ * @param {Context} ctx - Context object
  * @returns - Undefined
  */
 
-export const userRouterGetAllRequest = async (ctx: Context) => {
+export const userRouterGetAll = async (ctx: Context): Promise<void> => {
   try {
     const users = await getAll();
     const response = users.map((user: User) => toResponse(user));
@@ -28,11 +29,12 @@ export const userRouterGetAllRequest = async (ctx: Context) => {
 
 /**
  * Function implement GET method of userRouter (get one User)
- * @param ctx - Context object
+ * @async
+ * @param {Context} ctx - Context object
  * @returns - Undefined
  */
 
-export const userRouterGetOneRequest = async (ctx: Context) => {
+export const userRouterGetOne = async (ctx: Context): Promise<void> => {
   try {
     const {params} = ctx;
     const id = params.userId;
@@ -45,11 +47,12 @@ export const userRouterGetOneRequest = async (ctx: Context) => {
 
 /**
  * Function implement POST method of userRouter
- * @param ctx - Context object
+ * @async
+ * @param {Context} ctx - Context object
  * @returns - Undefined
  */
 
-export const userRouterPostRequest = async (ctx: Context) => {
+export const userRouterPost = async (ctx: Context): Promise<void> => {
   try {
     const { body } = ctx.request;
     const response = await addUser(body);
@@ -61,11 +64,12 @@ export const userRouterPostRequest = async (ctx: Context) => {
 
 /**
  * Function implement PUT method of userRouter
- * @param ctx - Context object
+ * @async
+ * @param {Context} ctx - Context object
  * @returns - Undefined
  */
 
-export const userRouterPutRequest = async (ctx: Context) => {
+export const userRouterPut = async (ctx: Context): Promise<void> => {
   try {
     const {params} = ctx;
     const id = params.userId;
@@ -79,11 +83,12 @@ export const userRouterPutRequest = async (ctx: Context) => {
 
 /**
  * Function implement DELETE method of userRouter
- * @param ctx - Context object
+ * @async
+ * @param {Context} ctx - Context object
  * @returns - Undefined
  */
 
-export const userRouterDeleteRequest = async (ctx: Context) => {
+export const userRouterDelete = async (ctx: Context): Promise<void> => {
   try {
     const {params} = ctx;
     const id = params.userId;

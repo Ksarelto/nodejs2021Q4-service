@@ -9,11 +9,11 @@ import { getAllTasks, getOneTask, addTask, updateTask, deleteTask} from './tasks
 /**
  * Function implement GET method of taskRouter (get all tasks)
  * @async
- * @param ctx - Router context
- * @returns Undefined
+ * @param {Context} ctx - Router context
+ * @returns - Undefined
  */
 
-export const taskRouterGetAll = async (ctx: Context) => {
+export const taskRouterGetAll = async (ctx: Context): Promise<void> => {
   try {
     const {params} = ctx;
     const id = params.boardId;
@@ -27,11 +27,11 @@ export const taskRouterGetAll = async (ctx: Context) => {
 /**
  * Function implement GET method of taskRouter (get one task)
  * @async
- * @param ctx - Router context
- * @returns Undefined
+ * @param {Context} ctx - Router context
+ * @returns - Undefined
  */
 
-export const taskRouterGetOne = async (ctx: Context) => {
+export const taskRouterGetOne = async (ctx: Context): Promise<void> => {
   try {
     const {params} = ctx;
     const task = await getOneTask(params);
@@ -44,11 +44,11 @@ export const taskRouterGetOne = async (ctx: Context) => {
 /**
  * Function implement POST method of taskRouter
  * @async
- * @param ctx - Router context
- * @returns Undefined
+ * @param {Context} ctx - Router context
+ * @returns - Undefined
  */
 
-export const taskRouterPost = async (ctx: Context) => {
+export const taskRouterPost = async (ctx: Context): Promise<void> => {
   try {
     const { body } = ctx.request;
     const {params} = ctx;
@@ -63,11 +63,11 @@ export const taskRouterPost = async (ctx: Context) => {
 /**
  * Function implement PUT method of taskRouter
  * @async
- * @param ctx - Router context
- * @returns Undefined
+ * @param {Context} ctx - Router context
+ * @returns - Undefined
  */
 
-export const taskRouterPut = async (ctx: Context) => {
+export const taskRouterPut = async (ctx: Context): Promise<void> => {
   try {
     const { params } = ctx;
     const { body } = ctx.request;
@@ -80,11 +80,11 @@ export const taskRouterPut = async (ctx: Context) => {
 /**
  * Function implement DELETE method of taskRouter
  * @async
- * @param ctx - Router context
- * @returns Undefined
+ * @param {Context} ctx - Router context
+ * @returns - Undefined
  */
 
-export const taskRouterDelete = async (ctx: Context) => {
+export const taskRouterDelete = async (ctx: Context): Promise<void> => {
   try {
     const { params } = ctx;
     const task = await deleteTask(params);

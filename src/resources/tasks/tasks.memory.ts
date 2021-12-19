@@ -1,67 +1,66 @@
 /**
  * @module task_memory_methods
  */
-import { Tasks } from "../../common/types";
+import { Task } from "../../common/types";
 import {db} from '../../../db/db';
 import { checkExistence } from '../../common/utils';
 
 /**
- * This function get Boards and Tasks from database, find Tasks with the same boardId, return them
+ * Get Boards and Tasks from database, find Tasks with the same boardId, return them
  * @async
- * @param id - The boardId of Task object
- * @returns The array of Tasks objects with same boardId
+ * @param {string} id - The boardId of Task object
+ * @returns - The array of Tasks objects with same boardId
  */
 
-export const getAllTasksDB = async (id: string) => {
+export const getAllTasksDB = async (id: string): Promise<Task[]> => {
   const { boards, tasks } = await db;
   checkExistence(boards, id, 'Board');
-  const choosedTasks = tasks.filter((task: Tasks) => task.boardId === id);
+  const choosedTasks = tasks.filter((task: Task) => task.boardId === id);
   return choosedTasks;
 };
 
 /**
- * This function get Boards and Tasks from database, find Task object with the taskId, return it
+ * Get Boards and Tasks from database, find Task object with the taskId, return it
  * @async
- * @param params - The object with boardId and taskId
- * @returns The searched Task object
+ * @param {Record<string,string>} params - The object with boardId and taskId
+ * @returns - The searched Task object
  */
 
-export const getOneTaskDB = async (params: Record<string, string>) => {
+export const getOneTaskDB = async (params: Record<string, string>): Promise<Task> => {
   const { boards, tasks } = await db;
   const {boardId, taskId} = params;
   checkExistence(boards, boardId, 'Board');
   const foundedTask = checkExistence(tasks, taskId, 'Task');
-  return foundedTask;
+  return foundedTask as Task;
 };
 
 /**
  * This function add to database new Task object and return it
  * @async
- * @param id - The boardId of Task object
- * @param data - The new Task object 
- * @returns The new Task object
+ * @param {Task} data - The new Task object 
+ * @returns - The new Task object
  */
 
-export const addTaskDB = async ( data: Tasks) => {
+export const addTaskDB = async ( data: Task) => {
   await db.tasks.push(data);
   return data;
 };
 
 /**
- * This function get boards and tasks from database, find and update searched Task object, return updated object 
+ * Get boards and tasks from database, find and update found Task object, return updated object 
  * @async
- * @param params - The object with boardId and taskId
- * @param data - The data to update Task object
- * @returns The updated Task object
+ * @param {Record<string,string>} params - The object with boardId and taskId
+ * @param {Task} data - The data to update Task object
+ * @returns - The updated Task object
  */
 
-export const updateTaskDB = async (params: Record<string, string>, data: Tasks) => {
+export const updateTaskDB = async (params: Record<string, string>, data: Task): Promise<Task | undefined> => {
   let updatedTask;
   const { tasks, boards } = await db;
   const {boardId, taskId} = params;
   checkExistence(boards, boardId, 'Board');
   checkExistence(tasks, taskId, 'Task');
-  const updatedTasks = tasks.map((task: Tasks) => {
+  const updatedTasks = tasks.map((task: Task) => {
     if (task.id === taskId) {
       updatedTask = { ...data, id: task.id };
       return updatedTask;
@@ -74,18 +73,18 @@ export const updateTaskDB = async (params: Record<string, string>, data: Tasks) 
 };
 
 /**
- * This function find by id in database and delete Task object, return new array of Tasks
+ * Find by id in database and delete Task object, return new array of Tasks
  * @async
- * @param params - The object with boardId and taskId
- * @returns New array of Tasks objects
+ * @param {Record<string, string>} params - The object with boardId and taskId
+ * @returns - New array of Task`s objects
  */
 
-export const deleteTaskDB = async (params: Record<string, string>) => {
+export const deleteTaskDB = async (params: Record<string, string>): Promise<Task[]> => {
   const { tasks, boards } = await db;
   const {boardId, taskId} = params;
   checkExistence(boards, boardId, 'Board');
   checkExistence(tasks, taskId, 'Task');
-  const newTasksArray = tasks.filter((task: Tasks) => task.id !== taskId);
+  const newTasksArray = tasks.filter((task: Task) => task.id !== taskId);
   db.tasks = newTasksArray;
   return newTasksArray;
 };

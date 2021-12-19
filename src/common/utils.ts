@@ -6,9 +6,9 @@ import { User, SearchedArray } from "./types";
 import { headers } from './constants';
 
 /**
- * This function remove field password from User object and return new User object
+ * Remove field password from User object and return new User object
  * @param {User} user - Is a User object
- * @returns The User without field password
+ * @returns - The User without field password
  */
 
 export const toResponse = (user: User): Omit<User,'password'> => {
@@ -19,7 +19,7 @@ export const toResponse = (user: User): Omit<User,'password'> => {
 /**
  * This function validate id
  * @param {string | undefined} id - Is an id parametr of Item
- * @returns If id valid return true, else false
+ * @returns - If id valid return true, else false
  */
 
 export const validateID = (id: string | undefined): boolean => {
@@ -30,12 +30,12 @@ export const validateID = (id: string | undefined): boolean => {
 };
 
 /**
- * This function check the existance ofsome Item in Array
+ * Check the existance of some Item in Array
  * @param {T} arr - Array of Items
  * @param {string | undefined} id - Id of searched item in array
  * @param {string} name - Nmae of the Array of the Items
- * @throws Error message if searchedItem is not find
- * @returns Searched Item
+ * @throws - Error message if searchedItem is not find
+ * @returns - Searched Item
  */
 
 export const checkExistence = <T extends SearchedArray>(arr: T[], id: string | undefined, name: string): SearchedArray => {
@@ -46,27 +46,27 @@ export const checkExistence = <T extends SearchedArray>(arr: T[], id: string | u
 };
 
 /**
- * This function send success response with data to client
+ * Send success response with data to client
  * @param {Context} context - Is an object that include request and response of server
  * @param {T} data - Is some data that we should send to ckient
  * @param {number} code - Code number of response
- * @returns undefined 
+ * @returns - undefined 
  */
 
-export const successResponse = <T>(context: Context, data: T, code: number) => {
+export const successResponse = <T>(context: Context, data: T, code: number): void => {
   context.res.writeHead(code, headers);
   context.body = JSON.stringify(data);
 };
 
 /**
- * This function send error response with error message to client
+ * Send error response with error message to client
  * @param {Context} context - Is an object that include request and response of server
  * @param {unknown} error - Is Error object
  * @param {number} code - ode number of response
- * @returns undefined
+ * @returns - undefined
  */
 
-export const errorResponse = (context: Context, error: unknown, code: number) => {
+export const errorResponse = (context: Context, error: unknown, code: number): void => {
   context.response.status = code;
   context.body = (error as Error).message;
 };

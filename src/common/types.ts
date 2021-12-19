@@ -4,6 +4,8 @@
 
 /**
  * Interfacce of User Object
+ * @name User
+ * @type {User}
  * @interface
  */
 
@@ -16,10 +18,12 @@ export interface User {
 
 /**
  * Interfacce of Boards Object
+ * @name Board
+ * @type {Board}
  * @interface
  */
 
-export interface Boards {
+export interface Board {
     id?: string,
     title: string,
     columns: {
@@ -31,10 +35,12 @@ export interface Boards {
 
 /**
  * Interfacce of Task Object
+ * @name Task
+ * @type {Task}
  * @interface
  */
 
-export interface Tasks {
+export interface Task {
     id?: string,
     title: string,
     order: number,
@@ -46,17 +52,21 @@ export interface Tasks {
 
 /**
  * Interfacce of Database Object
+ * @name DataBase
+ * @type {DataBase}
  * @interface
  */
 
 export interface DataBase {
     users: User[],
-    boards: Boards[],
-    tasks: Tasks[]
+    boards: Board[],
+    tasks: Task[]
 }
 
 /**
  * Interface union object
+ * @name SearchedArray
+ * @type {SearchedArray}
  * @interface
  */
 

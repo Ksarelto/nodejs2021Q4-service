@@ -4,7 +4,7 @@
 
 /**
  * The list of status codes of responses
- * @name codes
+ * @constant Status_Codes
  * @enum
  */
 export const StatusCodes = {
@@ -18,7 +18,7 @@ export const StatusCodes = {
 
 /**
  * The list of response headers
- * @constant 
+ * @constant headers
  * @type {object}
  */
 export const headers = {

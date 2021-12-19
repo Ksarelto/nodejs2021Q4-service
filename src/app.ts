@@ -15,6 +15,7 @@ const app = new Koa();
 
 /**
  * Koa "use" method to parse request body
+ * @remarks Method of Koa object(koa API)
  * @param {callback} koaBody that parse request body
  */
 
@@ -22,6 +23,7 @@ app.use(koaBody());
 
 /**
  * Koa "use" method checking the url path for "/"
+ *@remarks Method of Koa object(koa API)
  * @async
  * @param {callback} callback with to arguments ctx: Context and next: Function to call next method
  * @returns - undefined

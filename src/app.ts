@@ -8,30 +8,32 @@ import { boardRouter } from './resources/boards/boards.router';
 import { tasksRouter } from './resources/tasks/tasks.router';
 
 /**
- * app is a class Koa
+ * @constant {Koa} app is an object of Koa class 
  */
 
 const app = new Koa();
 
+/**
+ * Koa "use" method to parse request body
+ * @param {callback} koaBody that parse request body
+ */
+
 app.use(koaBody());
 
 /**
- * This method checking the url path for "/"
- * @param ctx - is a context that include request and response objects
- * @param next - is a method to call next method
+ * Koa "use" method checking the url path for "/"
+ * @async
+ * @param {callback} callback with to arguments ctx: Context and next: Function to call next method
+ * @returns - undefined
  */
 
-app.use(async (ctx, next) => {
+app.use(async (ctx, next): Promise<void> => {
   if (ctx.originalUrl === '/') {
     ctx.body('Service is running!');
     return;
   }
   next();
 });
-
-/**
- * This is use method that considers routes
- */
 
 app.use(userRouter.routes()).use(userRouter.allowedMethods());
 app.use(boardRouter.routes()).use(boardRouter.allowedMethods());

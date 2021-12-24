@@ -1,0 +1,90 @@
+Creating time: 2021-12-24 17:45:41:4541/n ERROR: 
+    Name: "Error"
+    Message: "Board with such id is not defined"
+    Stack: "Error: Board with such id is not defined\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.memory.ts:29:38\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 500
+    
+Creating time: 2021-12-24 17:45:41:4541/n ERROR: 
+    Name: "Error"
+    Message: "Board with such id is not defined"
+    Stack: "Error: Board with such id is not defined\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 500
+    
+Creating time: 2021-12-24 17:45:42:4542/n ERROR: 
+    Name: "Error"
+    Message: "Board with such id is not defined"
+    Stack: "Error: Board with such id is not defined\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 500
+    
+Creating time: 2021-12-24 17:45:42:4542/n ERROR: 
+    Name: "Error"
+    Message: "Board with such id is not defined"
+    Stack: "Error: Board with such id is not defined\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 500
+    
+Creating time: 2021-12-24 17:45:42:4542/n ERROR: 
+    Name: "Error"
+    Message: "Board with such id is not defined"
+    Stack: "Error: Board with such id is not defined\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 500
+    
+Creating time: 2021-12-24 17:45:42:4542/n ERROR: 
+    Name: "Error"
+    Message: "Board with such id is not defined"
+    Stack: "Error: Board with such id is not defined\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 500
+    
+Creating time: 2021-12-24 17:45:42:4542/n ERROR: 
+    Name: "Error"
+    Message: "Task with such id is not defined"
+    Stack: "Error: Task with such id is not defined\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:33:37\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 500
+    
+Creating time: 2021-12-24 17:50:09:509/n ERROR: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.memory.ts:29:38\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+Creating time: 2021-12-24 17:50:09:509/n ERROR: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+Creating time: 2021-12-24 17:50:09:509/n ERROR: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+Creating time: 2021-12-24 17:50:09:509/n ERROR: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+Creating time: 2021-12-24 17:50:09:509/n ERROR: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+Creating time: 2021-12-24 17:50:09:509/n ERROR: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+Creating time: 2021-12-24 17:50:09:509/n ERROR: 
+    Name: "NotFound"
+    Message: "Such Task is not found"
+    Stack: "NotFound: Such Task is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:33:37\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+Creating time: 2021-12-24 17:57:39:5739/n ERROR: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.memory.ts:29:38\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    

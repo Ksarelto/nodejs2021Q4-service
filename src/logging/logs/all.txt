@@ -1,0 +1,1426 @@
+INFO: 
+  Method: "GET"
+  URL: "/users"
+  Params: {}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "POST"
+  URL: "/users"
+  Params: {}
+  Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+  Status Code: 201
+  
+INFO: 
+  Method: "GET"
+  URL: "/users/c4c91410-c297-4e30-acc1-5432df29160c"
+  Params: {"userId":"c4c91410-c297-4e30-acc1-5432df29160c"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/users/c4c91410-c297-4e30-acc1-5432df29160c"
+  Params: {"userId":"c4c91410-c297-4e30-acc1-5432df29160c"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/users"
+  Params: {}
+  Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/users/2f693bcb-5992-49d3-8d15-87cd730fe944"
+  Params: {"userId":"2f693bcb-5992-49d3-8d15-87cd730fe944"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/users"
+  Params: {}
+  Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+  Status Code: 201
+  
+INFO: 
+  Method: "PUT"
+  URL: "/users/13f47647-a080-4b5f-aa64-c6b83281ace0"
+  Params: {"userId":"13f47647-a080-4b5f-aa64-c6b83281ace0"}
+  Body: {"name":"Autotest updated TEST_USER","login":"test_user","password":"T35t_P@55w0rd","id":"13f47647-a080-4b5f-aa64-c6b83281ace0"}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/users/13f47647-a080-4b5f-aa64-c6b83281ace0"
+  Params: {"userId":"13f47647-a080-4b5f-aa64-c6b83281ace0"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/users/13f47647-a080-4b5f-aa64-c6b83281ace0"
+  Params: {"userId":"13f47647-a080-4b5f-aa64-c6b83281ace0"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/users"
+  Params: {}
+  Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/users/de577345-386c-44a3-8b82-aa759e3d0723"
+  Params: {"userId":"de577345-386c-44a3-8b82-aa759e3d0723"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/users"
+  Params: {}
+  Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/36c48cbc-09df-4016-820b-d2d51726167a/tasks"
+  Params: {"boardId":"36c48cbc-09df-4016-820b-d2d51726167a"}
+  Body: {"title":"Task #1","order":1,"description":"Lorem ipsum","userId":"f46e3650-cf3c-4f40-9741-87e115728dfa","boardId":"36c48cbc-09df-4016-820b-d2d51726167a"}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/36c48cbc-09df-4016-820b-d2d51726167a/tasks"
+  Params: {"boardId":"36c48cbc-09df-4016-820b-d2d51726167a"}
+  Body: {"title":"Task #2","order":2,"description":"Lorem ipsum","userId":"f46e3650-cf3c-4f40-9741-87e115728dfa","boardId":"36c48cbc-09df-4016-820b-d2d51726167a"}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/users/f46e3650-cf3c-4f40-9741-87e115728dfa"
+  Params: {"userId":"f46e3650-cf3c-4f40-9741-87e115728dfa"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/36c48cbc-09df-4016-820b-d2d51726167a/tasks/247cf4b5-68c9-46f9-9a1f-ebff860668f4"
+  Params: {"boardId":"36c48cbc-09df-4016-820b-d2d51726167a","taskId":"247cf4b5-68c9-46f9-9a1f-ebff860668f4"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/36c48cbc-09df-4016-820b-d2d51726167a/tasks/0c01e791-011d-43a1-b32d-c1b99dffee81"
+  Params: {"boardId":"36c48cbc-09df-4016-820b-d2d51726167a","taskId":"0c01e791-011d-43a1-b32d-c1b99dffee81"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/36c48cbc-09df-4016-820b-d2d51726167a/tasks/247cf4b5-68c9-46f9-9a1f-ebff860668f4"
+  Params: {"boardId":"36c48cbc-09df-4016-820b-d2d51726167a","taskId":"247cf4b5-68c9-46f9-9a1f-ebff860668f4"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/36c48cbc-09df-4016-820b-d2d51726167a/tasks/0c01e791-011d-43a1-b32d-c1b99dffee81"
+  Params: {"boardId":"36c48cbc-09df-4016-820b-d2d51726167a","taskId":"0c01e791-011d-43a1-b32d-c1b99dffee81"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/36c48cbc-09df-4016-820b-d2d51726167a"
+  Params: {"boardId":"36c48cbc-09df-4016-820b-d2d51726167a"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards"
+  Params: {}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards"
+  Params: {}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/74a0a083-7d9f-4c0b-a765-44b1d7fdd17a"
+  Params: {"boardId":"74a0a083-7d9f-4c0b-a765-44b1d7fdd17a"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/8fb34a48-656c-44e1-8741-37b4c7272e43"
+  Params: {"boardId":"8fb34a48-656c-44e1-8741-37b4c7272e43"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "PUT"
+  URL: "/boards/2bb3f797-56eb-4c8a-86a5-906398e3235a"
+  Params: {"boardId":"2bb3f797-56eb-4c8a-86a5-906398e3235a"}
+  Body: {"title":"Autotest updated board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}],"id":"2bb3f797-56eb-4c8a-86a5-906398e3235a"}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/2bb3f797-56eb-4c8a-86a5-906398e3235a"
+  Params: {"boardId":"2bb3f797-56eb-4c8a-86a5-906398e3235a"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/2bb3f797-56eb-4c8a-86a5-906398e3235a"
+  Params: {"boardId":"2bb3f797-56eb-4c8a-86a5-906398e3235a"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/2915b091-6aad-4ddc-8d79-ad189ced2df2"
+  Params: {"boardId":"2915b091-6aad-4ddc-8d79-ad189ced2df2"}
+  Body: {}
+  Status Code: 204
+  
+ERROR: 
+    Name: "Error"
+    Message: "Board with such id is not defined"
+    Stack: "Error: Board with such id is not defined\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.memory.ts:29:38\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 500
+    
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/e53a5810-46bd-40ef-81f8-881d54a73ba5/tasks"
+  Params: {"boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5"}
+  Body: {"title":"Task #1","order":1,"description":"Lorem ipsum","boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5","userId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/e53a5810-46bd-40ef-81f8-881d54a73ba5/tasks"
+  Params: {"boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5"}
+  Body: {"title":"Task #2","order":2,"description":"Lorem ipsum","boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5","userId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/e53a5810-46bd-40ef-81f8-881d54a73ba5/tasks"
+  Params: {"boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5"}
+  Body: {"title":"Task #3","order":3,"description":"Lorem ipsum","boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5","userId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/e53a5810-46bd-40ef-81f8-881d54a73ba5/tasks"
+  Params: {"boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5"}
+  Body: {"title":"Task #4","order":4,"description":"Lorem ipsum","boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5","userId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/e53a5810-46bd-40ef-81f8-881d54a73ba5/tasks"
+  Params: {"boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5"}
+  Body: {"title":"Task #5","order":5,"description":"Lorem ipsum","boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5","userId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/e53a5810-46bd-40ef-81f8-881d54a73ba5/tasks/c5feac9b-f9de-4c71-8a80-9d3ab58f1779"
+  Params: {"boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5","taskId":"c5feac9b-f9de-4c71-8a80-9d3ab58f1779"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/e53a5810-46bd-40ef-81f8-881d54a73ba5/tasks/86a78a08-4ecd-4bfa-8f27-8165242ce28a"
+  Params: {"boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5","taskId":"86a78a08-4ecd-4bfa-8f27-8165242ce28a"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/e53a5810-46bd-40ef-81f8-881d54a73ba5/tasks/c94d388c-4c4c-4020-85e7-99946643fa47"
+  Params: {"boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5","taskId":"c94d388c-4c4c-4020-85e7-99946643fa47"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/e53a5810-46bd-40ef-81f8-881d54a73ba5/tasks/65b7b284-4935-41f4-9f9e-b53612593beb"
+  Params: {"boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5","taskId":"65b7b284-4935-41f4-9f9e-b53612593beb"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/e53a5810-46bd-40ef-81f8-881d54a73ba5/tasks/f54f2cfc-17cb-4758-aa3f-5d96fc2d6ace"
+  Params: {"boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5","taskId":"f54f2cfc-17cb-4758-aa3f-5d96fc2d6ace"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/e53a5810-46bd-40ef-81f8-881d54a73ba5"
+  Params: {"boardId":"e53a5810-46bd-40ef-81f8-881d54a73ba5"}
+  Body: {}
+  Status Code: 204
+  
+ERROR: 
+    Name: "Error"
+    Message: "Board with such id is not defined"
+    Stack: "Error: Board with such id is not defined\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 500
+    
+ERROR: 
+    Name: "Error"
+    Message: "Board with such id is not defined"
+    Stack: "Error: Board with such id is not defined\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 500
+    
+ERROR: 
+    Name: "Error"
+    Message: "Board with such id is not defined"
+    Stack: "Error: Board with such id is not defined\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 500
+    
+ERROR: 
+    Name: "Error"
+    Message: "Board with such id is not defined"
+    Stack: "Error: Board with such id is not defined\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 500
+    
+ERROR: 
+    Name: "Error"
+    Message: "Board with such id is not defined"
+    Stack: "Error: Board with such id is not defined\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 500
+    
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/74a0a083-7d9f-4c0b-a765-44b1d7fdd17a"
+  Params: {"boardId":"74a0a083-7d9f-4c0b-a765-44b1d7fdd17a"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa/tasks"
+  Params: {"boardId":"fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa"}
+  Body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa/tasks"
+  Params: {"boardId":"fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa/tasks"
+  Params: {"boardId":"fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa/tasks/08abfe8b-8321-4218-9d65-7469d352ff41"
+  Params: {"boardId":"fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa","taskId":"08abfe8b-8321-4218-9d65-7469d352ff41"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa/tasks"
+  Params: {"boardId":"fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa"}
+  Body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa/tasks/f0f760eb-5a8c-42e5-8141-f1bbae68e8b0"
+  Params: {"boardId":"fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa","taskId":"f0f760eb-5a8c-42e5-8141-f1bbae68e8b0"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa/tasks"
+  Params: {"boardId":"fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa"}
+  Body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "PUT"
+  URL: "/boards/fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa/tasks/cae8b201-e71c-4f69-9fb0-9cbadd29b138"
+  Params: {"boardId":"fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa","taskId":"cae8b201-e71c-4f69-9fb0-9cbadd29b138"}
+  Body: {"title":"Autotest updated task","order":0,"description":"Lorem ipsum","userId":null,"boardId":"fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa","columnId":null,"id":"cae8b201-e71c-4f69-9fb0-9cbadd29b138"}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa/tasks/cae8b201-e71c-4f69-9fb0-9cbadd29b138"
+  Params: {"boardId":"fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa","taskId":"cae8b201-e71c-4f69-9fb0-9cbadd29b138"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa/tasks/08abfe8b-8321-4218-9d65-7469d352ff41"
+  Params: {"boardId":"fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa","taskId":"08abfe8b-8321-4218-9d65-7469d352ff41"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa/tasks/08abfe8b-8321-4218-9d65-7469d352ff41"
+  Params: {"boardId":"fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa","taskId":"08abfe8b-8321-4218-9d65-7469d352ff41"}
+  Body: {}
+  Status Code: 204
+  
+ERROR: 
+    Name: "Error"
+    Message: "Task with such id is not defined"
+    Stack: "Error: Task with such id is not defined\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:33:37\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 500
+    
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa"
+  Params: {"boardId":"fbcfbc1e-cda1-4aab-a86f-fef9bab48cfa"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards"
+  Params: {}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards"
+  Params: {}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/e32d47e6-5e80-4690-999e-6c883b9411db"
+  Params: {"boardId":"e32d47e6-5e80-4690-999e-6c883b9411db"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/e6a88ddb-a735-4a93-a235-3087d00a7908"
+  Params: {"boardId":"e6a88ddb-a735-4a93-a235-3087d00a7908"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "PUT"
+  URL: "/boards/5fef27f2-e13d-4f2c-91f7-7b6b7e236819"
+  Params: {"boardId":"5fef27f2-e13d-4f2c-91f7-7b6b7e236819"}
+  Body: {"title":"Autotest updated board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}],"id":"5fef27f2-e13d-4f2c-91f7-7b6b7e236819"}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/5fef27f2-e13d-4f2c-91f7-7b6b7e236819"
+  Params: {"boardId":"5fef27f2-e13d-4f2c-91f7-7b6b7e236819"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/5fef27f2-e13d-4f2c-91f7-7b6b7e236819"
+  Params: {"boardId":"5fef27f2-e13d-4f2c-91f7-7b6b7e236819"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/089083f0-d45a-4aa4-b50e-117009a13e33"
+  Params: {"boardId":"089083f0-d45a-4aa4-b50e-117009a13e33"}
+  Body: {}
+  Status Code: 204
+  
+ERROR: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.memory.ts:29:38\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/c4d0686d-5be8-4060-aa3e-e6722de6e941/tasks"
+  Params: {"boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941"}
+  Body: {"title":"Task #1","order":1,"description":"Lorem ipsum","boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941","userId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/c4d0686d-5be8-4060-aa3e-e6722de6e941/tasks"
+  Params: {"boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941"}
+  Body: {"title":"Task #2","order":2,"description":"Lorem ipsum","boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941","userId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/c4d0686d-5be8-4060-aa3e-e6722de6e941/tasks"
+  Params: {"boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941"}
+  Body: {"title":"Task #3","order":3,"description":"Lorem ipsum","boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941","userId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/c4d0686d-5be8-4060-aa3e-e6722de6e941/tasks"
+  Params: {"boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941"}
+  Body: {"title":"Task #4","order":4,"description":"Lorem ipsum","boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941","userId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/c4d0686d-5be8-4060-aa3e-e6722de6e941/tasks"
+  Params: {"boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941"}
+  Body: {"title":"Task #5","order":5,"description":"Lorem ipsum","boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941","userId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/c4d0686d-5be8-4060-aa3e-e6722de6e941/tasks/67efbc22-eb60-4ee6-b175-2a9c3a029bdf"
+  Params: {"boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941","taskId":"67efbc22-eb60-4ee6-b175-2a9c3a029bdf"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/c4d0686d-5be8-4060-aa3e-e6722de6e941/tasks/395f3533-15b3-44f4-bd2d-484df272b9c7"
+  Params: {"boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941","taskId":"395f3533-15b3-44f4-bd2d-484df272b9c7"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/c4d0686d-5be8-4060-aa3e-e6722de6e941/tasks/1f4a0dac-52c9-4934-9544-9ec079ae3836"
+  Params: {"boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941","taskId":"1f4a0dac-52c9-4934-9544-9ec079ae3836"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/c4d0686d-5be8-4060-aa3e-e6722de6e941/tasks/788510b9-9b4c-4c7d-936d-5bdc1f65e8a8"
+  Params: {"boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941","taskId":"788510b9-9b4c-4c7d-936d-5bdc1f65e8a8"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/c4d0686d-5be8-4060-aa3e-e6722de6e941/tasks/8566cdbd-3741-46a0-b5ae-ac995c328377"
+  Params: {"boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941","taskId":"8566cdbd-3741-46a0-b5ae-ac995c328377"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/c4d0686d-5be8-4060-aa3e-e6722de6e941"
+  Params: {"boardId":"c4d0686d-5be8-4060-aa3e-e6722de6e941"}
+  Body: {}
+  Status Code: 204
+  
+ERROR: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+ERROR: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+ERROR: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+ERROR: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+ERROR: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/e32d47e6-5e80-4690-999e-6c883b9411db"
+  Params: {"boardId":"e32d47e6-5e80-4690-999e-6c883b9411db"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/436ff2c7-9a44-4f5e-88cb-16bef33614d1/tasks"
+  Params: {"boardId":"436ff2c7-9a44-4f5e-88cb-16bef33614d1"}
+  Body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/436ff2c7-9a44-4f5e-88cb-16bef33614d1/tasks"
+  Params: {"boardId":"436ff2c7-9a44-4f5e-88cb-16bef33614d1"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/436ff2c7-9a44-4f5e-88cb-16bef33614d1/tasks"
+  Params: {"boardId":"436ff2c7-9a44-4f5e-88cb-16bef33614d1"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/436ff2c7-9a44-4f5e-88cb-16bef33614d1/tasks/9d2a3d08-5f3c-4360-9601-bc391ac342d2"
+  Params: {"boardId":"436ff2c7-9a44-4f5e-88cb-16bef33614d1","taskId":"9d2a3d08-5f3c-4360-9601-bc391ac342d2"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/436ff2c7-9a44-4f5e-88cb-16bef33614d1/tasks"
+  Params: {"boardId":"436ff2c7-9a44-4f5e-88cb-16bef33614d1"}
+  Body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/436ff2c7-9a44-4f5e-88cb-16bef33614d1/tasks/83cc2bb7-c1e7-4f52-bb30-332062d43f6b"
+  Params: {"boardId":"436ff2c7-9a44-4f5e-88cb-16bef33614d1","taskId":"83cc2bb7-c1e7-4f52-bb30-332062d43f6b"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/436ff2c7-9a44-4f5e-88cb-16bef33614d1/tasks"
+  Params: {"boardId":"436ff2c7-9a44-4f5e-88cb-16bef33614d1"}
+  Body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "PUT"
+  URL: "/boards/436ff2c7-9a44-4f5e-88cb-16bef33614d1/tasks/0c9d2729-e97d-4f14-81d2-15f6c9b2771f"
+  Params: {"boardId":"436ff2c7-9a44-4f5e-88cb-16bef33614d1","taskId":"0c9d2729-e97d-4f14-81d2-15f6c9b2771f"}
+  Body: {"title":"Autotest updated task","order":0,"description":"Lorem ipsum","userId":null,"boardId":"436ff2c7-9a44-4f5e-88cb-16bef33614d1","columnId":null,"id":"0c9d2729-e97d-4f14-81d2-15f6c9b2771f"}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/436ff2c7-9a44-4f5e-88cb-16bef33614d1/tasks/0c9d2729-e97d-4f14-81d2-15f6c9b2771f"
+  Params: {"boardId":"436ff2c7-9a44-4f5e-88cb-16bef33614d1","taskId":"0c9d2729-e97d-4f14-81d2-15f6c9b2771f"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/436ff2c7-9a44-4f5e-88cb-16bef33614d1/tasks/9d2a3d08-5f3c-4360-9601-bc391ac342d2"
+  Params: {"boardId":"436ff2c7-9a44-4f5e-88cb-16bef33614d1","taskId":"9d2a3d08-5f3c-4360-9601-bc391ac342d2"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/436ff2c7-9a44-4f5e-88cb-16bef33614d1/tasks/9d2a3d08-5f3c-4360-9601-bc391ac342d2"
+  Params: {"boardId":"436ff2c7-9a44-4f5e-88cb-16bef33614d1","taskId":"9d2a3d08-5f3c-4360-9601-bc391ac342d2"}
+  Body: {}
+  Status Code: 204
+  
+ERROR: 
+    Name: "NotFound"
+    Message: "Such Task is not found"
+    Stack: "NotFound: Such Task is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:33:37\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/436ff2c7-9a44-4f5e-88cb-16bef33614d1"
+  Params: {"boardId":"436ff2c7-9a44-4f5e-88cb-16bef33614d1"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "GET"
+  URL: "/users"
+  Params: {}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "POST"
+  URL: "/users"
+  Params: {}
+  Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+  Status Code: 201
+  
+INFO: 
+  Method: "GET"
+  URL: "/users/70650c10-14f4-40a2-b3b5-623bb9831640"
+  Params: {"userId":"70650c10-14f4-40a2-b3b5-623bb9831640"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/users/70650c10-14f4-40a2-b3b5-623bb9831640"
+  Params: {"userId":"70650c10-14f4-40a2-b3b5-623bb9831640"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/users"
+  Params: {}
+  Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/users/4e3a8179-0814-4ccf-be5a-f9139d84ee31"
+  Params: {"userId":"4e3a8179-0814-4ccf-be5a-f9139d84ee31"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/users"
+  Params: {}
+  Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+  Status Code: 201
+  
+INFO: 
+  Method: "PUT"
+  URL: "/users/c63a701b-7d9f-442f-adad-8ca5851bd289"
+  Params: {"userId":"c63a701b-7d9f-442f-adad-8ca5851bd289"}
+  Body: {"name":"Autotest updated TEST_USER","login":"test_user","password":"T35t_P@55w0rd","id":"c63a701b-7d9f-442f-adad-8ca5851bd289"}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/users/c63a701b-7d9f-442f-adad-8ca5851bd289"
+  Params: {"userId":"c63a701b-7d9f-442f-adad-8ca5851bd289"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/users/c63a701b-7d9f-442f-adad-8ca5851bd289"
+  Params: {"userId":"c63a701b-7d9f-442f-adad-8ca5851bd289"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/users"
+  Params: {}
+  Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/users/17e99cb0-3a04-4a31-b711-3cc728fb76d9"
+  Params: {"userId":"17e99cb0-3a04-4a31-b711-3cc728fb76d9"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/users"
+  Params: {}
+  Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/87b44d2d-2c1f-4a03-84b3-5517cf3f300a/tasks"
+  Params: {"boardId":"87b44d2d-2c1f-4a03-84b3-5517cf3f300a"}
+  Body: {"title":"Task #1","order":1,"description":"Lorem ipsum","userId":"644e2941-8d23-4849-a5d7-53057ad488cf","boardId":"87b44d2d-2c1f-4a03-84b3-5517cf3f300a"}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/87b44d2d-2c1f-4a03-84b3-5517cf3f300a/tasks"
+  Params: {"boardId":"87b44d2d-2c1f-4a03-84b3-5517cf3f300a"}
+  Body: {"title":"Task #2","order":2,"description":"Lorem ipsum","userId":"644e2941-8d23-4849-a5d7-53057ad488cf","boardId":"87b44d2d-2c1f-4a03-84b3-5517cf3f300a"}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/users/644e2941-8d23-4849-a5d7-53057ad488cf"
+  Params: {"userId":"644e2941-8d23-4849-a5d7-53057ad488cf"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/87b44d2d-2c1f-4a03-84b3-5517cf3f300a/tasks/daa1dc7c-0e11-42c4-99f8-155e814ca1fd"
+  Params: {"boardId":"87b44d2d-2c1f-4a03-84b3-5517cf3f300a","taskId":"daa1dc7c-0e11-42c4-99f8-155e814ca1fd"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/87b44d2d-2c1f-4a03-84b3-5517cf3f300a/tasks/68b79ef1-8903-4a4b-a477-c082c03f2738"
+  Params: {"boardId":"87b44d2d-2c1f-4a03-84b3-5517cf3f300a","taskId":"68b79ef1-8903-4a4b-a477-c082c03f2738"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/87b44d2d-2c1f-4a03-84b3-5517cf3f300a/tasks/daa1dc7c-0e11-42c4-99f8-155e814ca1fd"
+  Params: {"boardId":"87b44d2d-2c1f-4a03-84b3-5517cf3f300a","taskId":"daa1dc7c-0e11-42c4-99f8-155e814ca1fd"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/87b44d2d-2c1f-4a03-84b3-5517cf3f300a/tasks/68b79ef1-8903-4a4b-a477-c082c03f2738"
+  Params: {"boardId":"87b44d2d-2c1f-4a03-84b3-5517cf3f300a","taskId":"68b79ef1-8903-4a4b-a477-c082c03f2738"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/87b44d2d-2c1f-4a03-84b3-5517cf3f300a"
+  Params: {"boardId":"87b44d2d-2c1f-4a03-84b3-5517cf3f300a"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards"
+  Params: {}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards"
+  Params: {}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/814832ae-49d9-4318-8317-1f7db569c450"
+  Params: {"boardId":"814832ae-49d9-4318-8317-1f7db569c450"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/59c3e70a-a190-4ee3-9dce-5bad7a79be02"
+  Params: {"boardId":"59c3e70a-a190-4ee3-9dce-5bad7a79be02"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "PUT"
+  URL: "/boards/835d2554-d51b-4801-9109-e4e2b5b7fd85"
+  Params: {"boardId":"835d2554-d51b-4801-9109-e4e2b5b7fd85"}
+  Body: {"title":"Autotest updated board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}],"id":"835d2554-d51b-4801-9109-e4e2b5b7fd85"}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/835d2554-d51b-4801-9109-e4e2b5b7fd85"
+  Params: {"boardId":"835d2554-d51b-4801-9109-e4e2b5b7fd85"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/835d2554-d51b-4801-9109-e4e2b5b7fd85"
+  Params: {"boardId":"835d2554-d51b-4801-9109-e4e2b5b7fd85"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/68536de8-e36c-4c9f-8561-4ba0c8a62279"
+  Params: {"boardId":"68536de8-e36c-4c9f-8561-4ba0c8a62279"}
+  Body: {}
+  Status Code: 204
+  
+WARN: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.memory.ts:29:38\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/336d428d-9266-4aa4-b57a-becdece33178/tasks"
+  Params: {"boardId":"336d428d-9266-4aa4-b57a-becdece33178"}
+  Body: {"title":"Task #1","order":1,"description":"Lorem ipsum","boardId":"336d428d-9266-4aa4-b57a-becdece33178","userId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/336d428d-9266-4aa4-b57a-becdece33178/tasks"
+  Params: {"boardId":"336d428d-9266-4aa4-b57a-becdece33178"}
+  Body: {"title":"Task #2","order":2,"description":"Lorem ipsum","boardId":"336d428d-9266-4aa4-b57a-becdece33178","userId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/336d428d-9266-4aa4-b57a-becdece33178/tasks"
+  Params: {"boardId":"336d428d-9266-4aa4-b57a-becdece33178"}
+  Body: {"title":"Task #3","order":3,"description":"Lorem ipsum","boardId":"336d428d-9266-4aa4-b57a-becdece33178","userId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/336d428d-9266-4aa4-b57a-becdece33178/tasks"
+  Params: {"boardId":"336d428d-9266-4aa4-b57a-becdece33178"}
+  Body: {"title":"Task #4","order":4,"description":"Lorem ipsum","boardId":"336d428d-9266-4aa4-b57a-becdece33178","userId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/336d428d-9266-4aa4-b57a-becdece33178/tasks"
+  Params: {"boardId":"336d428d-9266-4aa4-b57a-becdece33178"}
+  Body: {"title":"Task #5","order":5,"description":"Lorem ipsum","boardId":"336d428d-9266-4aa4-b57a-becdece33178","userId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/336d428d-9266-4aa4-b57a-becdece33178/tasks/568f5e17-9df2-4b94-af4f-5787f9e68b9a"
+  Params: {"boardId":"336d428d-9266-4aa4-b57a-becdece33178","taskId":"568f5e17-9df2-4b94-af4f-5787f9e68b9a"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/336d428d-9266-4aa4-b57a-becdece33178/tasks/221cd3a2-3519-4604-b79e-edeff7f75cfb"
+  Params: {"boardId":"336d428d-9266-4aa4-b57a-becdece33178","taskId":"221cd3a2-3519-4604-b79e-edeff7f75cfb"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/336d428d-9266-4aa4-b57a-becdece33178/tasks/653dfd0a-a538-4f76-b006-397f42728267"
+  Params: {"boardId":"336d428d-9266-4aa4-b57a-becdece33178","taskId":"653dfd0a-a538-4f76-b006-397f42728267"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/336d428d-9266-4aa4-b57a-becdece33178/tasks/dca841ad-4e03-4ac7-bc7a-92763f7e0477"
+  Params: {"boardId":"336d428d-9266-4aa4-b57a-becdece33178","taskId":"dca841ad-4e03-4ac7-bc7a-92763f7e0477"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/336d428d-9266-4aa4-b57a-becdece33178/tasks/b081180d-e5eb-4dc5-a931-5d4f5a330333"
+  Params: {"boardId":"336d428d-9266-4aa4-b57a-becdece33178","taskId":"b081180d-e5eb-4dc5-a931-5d4f5a330333"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/336d428d-9266-4aa4-b57a-becdece33178"
+  Params: {"boardId":"336d428d-9266-4aa4-b57a-becdece33178"}
+  Body: {}
+  Status Code: 204
+  
+WARN: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+WARN: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+WARN: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+WARN: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+WARN: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:32:17\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/814832ae-49d9-4318-8317-1f7db569c450"
+  Params: {"boardId":"814832ae-49d9-4318-8317-1f7db569c450"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "GET"
+  URL: "/users"
+  Params: {}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "POST"
+  URL: "/users"
+  Params: {}
+  Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+  Status Code: 201
+  
+INFO: 
+  Method: "GET"
+  URL: "/users/01ad6637-63dd-4ea4-bec6-5df786485684"
+  Params: {"userId":"01ad6637-63dd-4ea4-bec6-5df786485684"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/users/01ad6637-63dd-4ea4-bec6-5df786485684"
+  Params: {"userId":"01ad6637-63dd-4ea4-bec6-5df786485684"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/users"
+  Params: {}
+  Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/users/434be20c-8d5c-4e8d-8c17-bfc7f71291fe"
+  Params: {"userId":"434be20c-8d5c-4e8d-8c17-bfc7f71291fe"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/users"
+  Params: {}
+  Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+  Status Code: 201
+  
+INFO: 
+  Method: "PUT"
+  URL: "/users/95039a2d-5190-4698-813e-4f25f1c521ec"
+  Params: {"userId":"95039a2d-5190-4698-813e-4f25f1c521ec"}
+  Body: {"name":"Autotest updated TEST_USER","login":"test_user","password":"T35t_P@55w0rd","id":"95039a2d-5190-4698-813e-4f25f1c521ec"}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/users/95039a2d-5190-4698-813e-4f25f1c521ec"
+  Params: {"userId":"95039a2d-5190-4698-813e-4f25f1c521ec"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/users/95039a2d-5190-4698-813e-4f25f1c521ec"
+  Params: {"userId":"95039a2d-5190-4698-813e-4f25f1c521ec"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/users"
+  Params: {}
+  Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/users/ee49953e-9fff-414c-85ef-84dc23d8076f"
+  Params: {"userId":"ee49953e-9fff-414c-85ef-84dc23d8076f"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/users"
+  Params: {}
+  Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/766f4977-f257-4963-b002-ee0cf3047e8f/tasks"
+  Params: {"boardId":"766f4977-f257-4963-b002-ee0cf3047e8f"}
+  Body: {"title":"Task #1","order":1,"description":"Lorem ipsum","userId":"2b5c98ca-6afe-41b5-b1d9-2e8f91f2a970","boardId":"766f4977-f257-4963-b002-ee0cf3047e8f"}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/766f4977-f257-4963-b002-ee0cf3047e8f/tasks"
+  Params: {"boardId":"766f4977-f257-4963-b002-ee0cf3047e8f"}
+  Body: {"title":"Task #2","order":2,"description":"Lorem ipsum","userId":"2b5c98ca-6afe-41b5-b1d9-2e8f91f2a970","boardId":"766f4977-f257-4963-b002-ee0cf3047e8f"}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/users/2b5c98ca-6afe-41b5-b1d9-2e8f91f2a970"
+  Params: {"userId":"2b5c98ca-6afe-41b5-b1d9-2e8f91f2a970"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/766f4977-f257-4963-b002-ee0cf3047e8f/tasks/0b2db2ee-86d7-4ce1-a6f7-75ce0a441fb4"
+  Params: {"boardId":"766f4977-f257-4963-b002-ee0cf3047e8f","taskId":"0b2db2ee-86d7-4ce1-a6f7-75ce0a441fb4"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/766f4977-f257-4963-b002-ee0cf3047e8f/tasks/17166f95-4152-42ca-a73c-3f1aac0a632b"
+  Params: {"boardId":"766f4977-f257-4963-b002-ee0cf3047e8f","taskId":"17166f95-4152-42ca-a73c-3f1aac0a632b"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/766f4977-f257-4963-b002-ee0cf3047e8f/tasks/0b2db2ee-86d7-4ce1-a6f7-75ce0a441fb4"
+  Params: {"boardId":"766f4977-f257-4963-b002-ee0cf3047e8f","taskId":"0b2db2ee-86d7-4ce1-a6f7-75ce0a441fb4"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/766f4977-f257-4963-b002-ee0cf3047e8f/tasks/17166f95-4152-42ca-a73c-3f1aac0a632b"
+  Params: {"boardId":"766f4977-f257-4963-b002-ee0cf3047e8f","taskId":"17166f95-4152-42ca-a73c-3f1aac0a632b"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/766f4977-f257-4963-b002-ee0cf3047e8f"
+  Params: {"boardId":"766f4977-f257-4963-b002-ee0cf3047e8f"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+  Status Code: 201
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/b4901125-e105-4098-bda0-e432e61e8ebb/tasks"
+  Params: {"boardId":"b4901125-e105-4098-bda0-e432e61e8ebb"}
+  Body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/b4901125-e105-4098-bda0-e432e61e8ebb/tasks"
+  Params: {"boardId":"b4901125-e105-4098-bda0-e432e61e8ebb"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/b4901125-e105-4098-bda0-e432e61e8ebb/tasks"
+  Params: {"boardId":"b4901125-e105-4098-bda0-e432e61e8ebb"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/b4901125-e105-4098-bda0-e432e61e8ebb/tasks/8c1eb7c0-eb26-42a9-9ab2-aa1254471d46"
+  Params: {"boardId":"b4901125-e105-4098-bda0-e432e61e8ebb","taskId":"8c1eb7c0-eb26-42a9-9ab2-aa1254471d46"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/b4901125-e105-4098-bda0-e432e61e8ebb/tasks"
+  Params: {"boardId":"b4901125-e105-4098-bda0-e432e61e8ebb"}
+  Body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/b4901125-e105-4098-bda0-e432e61e8ebb/tasks/0f2d5a6e-0305-40c6-9e03-193e30f13e23"
+  Params: {"boardId":"b4901125-e105-4098-bda0-e432e61e8ebb","taskId":"0f2d5a6e-0305-40c6-9e03-193e30f13e23"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards/b4901125-e105-4098-bda0-e432e61e8ebb/tasks"
+  Params: {"boardId":"b4901125-e105-4098-bda0-e432e61e8ebb"}
+  Body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}
+  Status Code: 201
+  
+INFO: 
+  Method: "PUT"
+  URL: "/boards/b4901125-e105-4098-bda0-e432e61e8ebb/tasks/6cb07bed-2b74-4868-9668-1db794bca6a4"
+  Params: {"boardId":"b4901125-e105-4098-bda0-e432e61e8ebb","taskId":"6cb07bed-2b74-4868-9668-1db794bca6a4"}
+  Body: {"title":"Autotest updated task","order":0,"description":"Lorem ipsum","userId":null,"boardId":"b4901125-e105-4098-bda0-e432e61e8ebb","columnId":null,"id":"6cb07bed-2b74-4868-9668-1db794bca6a4"}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/b4901125-e105-4098-bda0-e432e61e8ebb/tasks/6cb07bed-2b74-4868-9668-1db794bca6a4"
+  Params: {"boardId":"b4901125-e105-4098-bda0-e432e61e8ebb","taskId":"6cb07bed-2b74-4868-9668-1db794bca6a4"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/b4901125-e105-4098-bda0-e432e61e8ebb/tasks/8c1eb7c0-eb26-42a9-9ab2-aa1254471d46"
+  Params: {"boardId":"b4901125-e105-4098-bda0-e432e61e8ebb","taskId":"8c1eb7c0-eb26-42a9-9ab2-aa1254471d46"}
+  Body: {}
+  Status Code: 200
+  
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/b4901125-e105-4098-bda0-e432e61e8ebb/tasks/8c1eb7c0-eb26-42a9-9ab2-aa1254471d46"
+  Params: {"boardId":"b4901125-e105-4098-bda0-e432e61e8ebb","taskId":"8c1eb7c0-eb26-42a9-9ab2-aa1254471d46"}
+  Body: {}
+  Status Code: 204
+  
+WARN: 
+    Name: "NotFound"
+    Message: "Such Task is not found"
+    Stack: "NotFound: Such Task is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:33:37\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\tasks\\tasks.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    
+INFO: 
+  Method: "DELETE"
+  URL: "/boards/b4901125-e105-4098-bda0-e432e61e8ebb"
+  Params: {"boardId":"b4901125-e105-4098-bda0-e432e61e8ebb"}
+  Body: {}
+  Status Code: 204
+  
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {}
+  Status Code: 201
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards"
+  Params: {}
+  Body: {}
+  Status Code: 200
+  
+WARN: 
+    Name: "Validation"
+    Message: "Invalid board id"
+    Stack: "Validation: Invalid board id\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.service.ts:29:30\n    at Generator.next (<anonymous>)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.service.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.service.ts:4:12)\n    at getOneBoard (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.service.ts:28:65)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\board.router.methods.ts:38:36\n    at Generator.next (<anonymous>)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\board.router.methods.ts:8:71\n    at new Promise (<anonymous>)"
+    Status Code: 400
+    
+INFO: 
+  Method: "POST"
+  URL: "/boards"
+  Params: {}
+  Body: {}
+  Status Code: 201
+  
+INFO: 
+  Method: "GET"
+  URL: "/boards/1d598949-7240-4f6e-957f-ed269d88215c"
+  Params: {"boardId":"1d598949-7240-4f6e-957f-ed269d88215c"}
+  Body: {}
+  Status Code: 200
+  
+ERROR: 
+    Name: "NotFound"
+    Message: "Such Board is not found"
+    Stack: "NotFound: Such Board is not found\n    at checkExistence (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\common\\utils.ts:47:28)\n    at D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.memory.ts:29:38\n    at Generator.next (<anonymous>)\n    at fulfilled (D:\\RSScool\\RSSchoolNode\\test\\node-service 2.0.0\\src\\resources\\boards\\boards.memory.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    Status Code: 404
+    

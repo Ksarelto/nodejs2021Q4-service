@@ -49,3 +49,11 @@ dotenv.config();
 
   export const {AUTH_MODE} = process.env;
 
+   /**
+ * @name LOGGING_LEVEL
+ * @constant LOGGING_LEVEL Considered logging level
+ * @type {string}
+ */
+
+    export const {LOGGING_LEVEL} = process.env;
+

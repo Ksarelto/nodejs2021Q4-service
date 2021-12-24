@@ -7,6 +7,7 @@ import { StatusCodes } from '../../common/constants';
 import { successResponse, errorResponse } from '../../common/utils';
 import { getAllBoards, getOneBoard, addBoard, updateBoard, deleteBoard} from './boards.service';
 
+
 /**
  * Function implement GET method of boardRouter (get all boards)
  * @async
@@ -19,7 +20,7 @@ export const boardRouterGetAll = async (ctx: Context): Promise<void> => {
     const boards = await getAllBoards();
     successResponse(ctx, boards, StatusCodes.successCode);
   } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
+    errorResponse(ctx, err);
   }
 }
 
@@ -37,7 +38,7 @@ export const boardRouterGetOne = async (ctx: Context): Promise<void> => {
     const board = await getOneBoard(param);
     successResponse(ctx, board, StatusCodes.successCode);
   } catch (err) {
-    errorResponse(ctx, err, StatusCodes.notFound);
+    errorResponse(ctx, err);
   }
 }
 
@@ -54,7 +55,7 @@ export const boardRouterPost = async (ctx: Context): Promise<void> => {
     const board = await addBoard(body);
     successResponse(ctx, board, StatusCodes.successCreate);
   } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
+    errorResponse(ctx, err);
   }
 }
 
@@ -73,7 +74,7 @@ export const boardRouterPut = async (ctx: Context): Promise<void> => {
     const board = await updateBoard(id, body);
     successResponse(ctx, board, StatusCodes.successCode);
   } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
+    errorResponse(ctx, err);
   }
 }
 
@@ -91,6 +92,6 @@ export const boardRouterDelete = async (ctx: Context): Promise<void> => {
     const board = await deleteBoard(id);
     successResponse(ctx, board, StatusCodes.successDelete);
   } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
+    errorResponse(ctx, err);
   }
 }

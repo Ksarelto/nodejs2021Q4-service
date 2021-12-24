@@ -23,7 +23,7 @@ export const userRouterGetAll = async (ctx: Context): Promise<void> => {
       successResponse(ctx, response, StatusCodes.successCode);
     }
   } catch (err: unknown) {
-    errorResponse(ctx, err, StatusCodes.internalError);
+    errorResponse(ctx, err);
   }
 }
 
@@ -41,7 +41,7 @@ export const userRouterGetOne = async (ctx: Context): Promise<void> => {
     const user = await getOne(id);
     successResponse(ctx, toResponse(user), StatusCodes.successCode);
   } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
+    errorResponse(ctx, err);
   }
 }
 
@@ -58,7 +58,7 @@ export const userRouterPost = async (ctx: Context): Promise<void> => {
     const response = await addUser(body);
     successResponse(ctx, toResponse(response), StatusCodes.successCreate);
   } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
+    errorResponse(ctx, err);
   }
 }
 
@@ -77,7 +77,7 @@ export const userRouterPut = async (ctx: Context): Promise<void> => {
     const response = await updateUser(id, body);
     successResponse(ctx, toResponse(response), StatusCodes.successCode);
   } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
+    errorResponse(ctx, err);
   }
 }
 
@@ -95,6 +95,6 @@ export const userRouterDelete = async (ctx: Context): Promise<void> => {
     await deleteUser(id);
     successResponse(ctx, null, StatusCodes.successDelete);
   } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
+    errorResponse(ctx, err);
   }
 }

@@ -2,6 +2,8 @@
  * @module task_service
  */
 import { v4 as uuidv4 } from 'uuid';
+import { StatusCodes } from '../../common/constants';
+import { UsersErrors, ValidationErrors } from '../../common/errors.object';
 import { Task } from '../../common/types';
 import { validateID } from '../../common/utils';
 import { getAllTasksDB, getOneTaskDB, addTaskDB, updateTaskDB, deleteTaskDB} from './tasks.memory';
@@ -15,7 +17,7 @@ import { getAllTasksDB, getOneTaskDB, addTaskDB, updateTaskDB, deleteTaskDB} fro
  */
 
 export const getAllTasks = async (id: string): Promise<Task[]> => {
-  if (!validateID(id)) throw new Error('Invalid board id');
+  if (!validateID(id)) throw new ValidationErrors('Validation', StatusCodes.invalidId, 'Invalid board id');
   const allTasks = await getAllTasksDB(id);
   return allTasks
 };
@@ -31,8 +33,8 @@ export const getAllTasks = async (id: string): Promise<Task[]> => {
 
 export const getOneTask = async (params: Record<string, string>): Promise<Task> => {
   const {boardId, taskId} = params;
-  if (!validateID(boardId)) throw new Error('Invalid board id');
-  if (!validateID(taskId)) throw new Error('Invalid task id');
+  if (!validateID(boardId)) throw new ValidationErrors('Validation', StatusCodes.invalidId, 'Invalid board id');
+  if (!validateID(taskId)) throw new ValidationErrors('Validation', StatusCodes.invalidId, 'Invalid task id');
   const oneTask = await getOneTaskDB(params);
   return oneTask;
 };
@@ -68,10 +70,10 @@ export const addTask = async (id: string, data: Task): Promise<Task> => {
 
 export const updateTask = async (params: Record<string, string>, data: Task): Promise<Task> => {
   const {boardId, taskId} = params;
-  if (!validateID(boardId)) throw new Error('Invalid board id');
-  if (!validateID(taskId)) throw new Error('Invalid task id');
+  if (!validateID(boardId)) throw new ValidationErrors('Validation', StatusCodes.invalidId, 'Invalid board id');
+  if (!validateID(taskId)) throw new ValidationErrors('Validation', StatusCodes.invalidId, 'Invalid task id');
   const updatedTask = await updateTaskDB(params, data);
-  if(!updatedTask) throw new Error('The updated task is undefined');
+  if(!updatedTask) throw new UsersErrors('NotFound', StatusCodes.notFound, 'Such task is not exist');
   return updatedTask;
 };
 
@@ -86,8 +88,8 @@ export const updateTask = async (params: Record<string, string>, data: Task): Pr
 
 export const deleteTask = async (params: Record<string, string>): Promise<Task[]> => {
   const {boardId, taskId} = params;
-  if (!validateID(boardId)) throw new Error('Invalid board id');
-  if (!validateID(taskId)) throw new Error('Invalid task id');
+  if (!validateID(boardId)) throw new ValidationErrors('Validation', StatusCodes.invalidId, 'Invalid board id');
+  if (!validateID(taskId)) throw new ValidationErrors('Validation', StatusCodes.invalidId, 'Invalid task id');
   const newTasksArray = await deleteTaskDB(params);
   return newTasksArray;
 };

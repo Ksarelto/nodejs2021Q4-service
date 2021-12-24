@@ -20,7 +20,7 @@ export const taskRouterGetAll = async (ctx: Context): Promise<void> => {
     const tasks = await getAllTasks(id);
     successResponse(ctx, tasks, StatusCodes.successCode);
   } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
+    errorResponse(ctx, err);
   }
 }
 
@@ -37,7 +37,7 @@ export const taskRouterGetOne = async (ctx: Context): Promise<void> => {
     const task = await getOneTask(params);
     successResponse(ctx, task, StatusCodes.successCode);
   } catch (err) {
-    errorResponse(ctx, err, StatusCodes.notFound);
+    errorResponse(ctx, err);
   }
 }
 
@@ -56,7 +56,7 @@ export const taskRouterPost = async (ctx: Context): Promise<void> => {
     const task = await addTask(id, body);
     successResponse(ctx, task, StatusCodes.successCreate);
   } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
+    errorResponse(ctx, err);
   }
 }
 
@@ -74,7 +74,7 @@ export const taskRouterPut = async (ctx: Context): Promise<void> => {
     const task = await updateTask(params, body);
     successResponse(ctx, task, StatusCodes.successCode);
   } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
+    errorResponse(ctx, err);
   }
 }
 /**
@@ -90,6 +90,6 @@ export const taskRouterDelete = async (ctx: Context): Promise<void> => {
     const task = await deleteTask(params);
     successResponse(ctx, task, StatusCodes.successDelete);
   } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
+    errorResponse(ctx, err);
   }
 }

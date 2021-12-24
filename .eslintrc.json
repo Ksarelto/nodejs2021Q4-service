@@ -39,6 +39,10 @@
     }],
     "linebreak-style": "off",
     "node/no-unsupported-features/es-syntax": "off",
+    "max-classes-per-file": [
+        "error",
+        { "ignoreExpressions": true, "max": 3 }
+    ],
     "no-underscore-dangle": "off",
     "import/prefer-default-export": "off",
     "@typescript-eslint/no-explicit-any": 2,

@@ -2,8 +2,11 @@
  * @module utils
  */
 import { Context } from "koa";
+import { finished } from "stream";
 import { User, SearchedArray } from "./types";
-import { headers } from './constants';
+import { headers, StatusCodes } from './constants';
+import Logger from "../logging/winston.log";
+import { CustomErrors, UsersErrors, ValidationErrors } from "./errors.object";
 
 /**
  * Remove field password from User object and return new User object
@@ -39,11 +42,24 @@ export const validateID = (id: string | undefined): boolean => {
  */
 
 export const checkExistence = <T extends SearchedArray>(arr: T[], id: string | undefined, name: string): SearchedArray => {
-  if(!id) throw new Error(`Id is not defined`);
+  if(!id) throw new ValidationErrors('Id empty', StatusCodes.invalidId, 'Invalid id');
   const searchedItem = arr.find((item) => item.id === id);
-  if (!searchedItem) throw new Error(`${name} with such id is not defined`);
+  if (!searchedItem) throw new UsersErrors('NotFound', StatusCodes.notFound, `Such ${name} is not found`);
   return searchedItem;
 };
+
+const createInfoMessage = (ctx: Context) => {
+  const { params, method } = ctx;
+  const { body, url } = ctx.request;
+  const { statusCode } = ctx.res;
+  return `
+  Method: ${JSON.stringify(method)}
+  URL: ${JSON.stringify(url)}
+  Params: ${params ? JSON.stringify(params) : 'empty'}
+  Body: ${JSON.stringify(body)}
+  Status Code: ${statusCode}
+  `
+}
 
 /**
  * Send success response with data to client
@@ -56,7 +72,18 @@ export const checkExistence = <T extends SearchedArray>(arr: T[], id: string | u
 export const successResponse = <T>(context: Context, data: T, code: number): void => {
   context.res.writeHead(code, headers);
   context.body = JSON.stringify(data);
+  finished(context.res, () => {
+    const message = createInfoMessage(context);
+    Logger.info(message);
+  })
 };
+
+export const createErrorMessage = (err: CustomErrors | Error) => `
+    Name: ${JSON.stringify(err.name)}
+    Message: ${JSON.stringify(err.message)}
+    Stack: ${JSON.stringify(err.stack)}
+    Status Code: ${err instanceof CustomErrors ? err.code : 500}
+    `
 
 /**
  * Send error response with error message to client
@@ -66,7 +93,20 @@ export const successResponse = <T>(context: Context, data: T, code: number): voi
  * @returns - undefined
  */
 
-export const errorResponse = (context: Context, error: unknown, code: number): void => {
-  context.response.status = code;
+export const errorResponse = (context: Context, error: unknown): void => {
+  const statusCode = error instanceof CustomErrors ? error.code : 500;
+  context.response.status = statusCode;
   context.body = (error as Error).message;
+  const message = createErrorMessage(error as CustomErrors | Error);
+  if(statusCode === 400){
+    Logger.warn(message);
+    return;
+  } 
+  Logger.error(message);
 };
+
+export const uncaughtExeptionsHandler = (err: Error) => {
+  const message = createErrorMessage(err);
+  Logger.error(message);
+  process.exit(1);
+}

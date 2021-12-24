@@ -25,3 +25,18 @@ export const headers = {
   'Content-Type': 'application/json',
 };
 
+
+export const LogLevelsObject = {
+  error: 0,
+  warn: 1,
+  info: 2,
+  http: 3,
+  all: 4
+}
+
+export const LogColorsObject = {
+  error: 'red',
+  warn: 'yellow',
+  info: 'green',
+  http: 'purple',
+}

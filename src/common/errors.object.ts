@@ -31,6 +31,6 @@ export const errorNames = {
 }
 
 export const errorMessages = {
-  invalid: 'Invalid id of',
-  notExist: 'is not exist'
+  invalid: 'Invalid id of ',
+  notExist: ' is not exist'
 }

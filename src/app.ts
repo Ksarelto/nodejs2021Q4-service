@@ -6,7 +6,7 @@ import koaBody from 'koa-body';
 import { userRouter } from './resources/users/user.router';
 import { boardRouter } from './resources/boards/boards.router';
 import { tasksRouter } from './resources/tasks/tasks.router';
-import { uncaughtExeptionsHandler } from './common/utils';
+import { errorResponse, uncaughtExeptionsHandler } from './common/utils';
 
 /**
  * @constant {Koa} app is an object of Koa class 
@@ -44,6 +44,7 @@ process.on('unhandledRejection', (err) => {
   uncaughtExeptionsHandler(err as Error);
 })
 
+
 /**
  * Koa "use" method checking the url path for "/"
  *@remarks Method of Koa object(koa API)
@@ -59,6 +60,22 @@ app.use(async (ctx, next): Promise<void> => {
   }
   next();
 });
+
+/**
+ * Koa "use" method for handling errors
+ *@remarks Method of Koa object(koa API)
+ * @async
+ * @param {callback} callback with to arguments ctx: Context and next: Function to call next method
+ * @returns - undefined
+ */
+app.use(async (ctx, next: () => Promise<unknown>) => {
+  try{
+    await next()
+  } catch(err){
+    errorResponse(ctx, err);
+  }
+});
+
 app.use(userRouter.routes()).use(userRouter.allowedMethods());
 app.use(boardRouter.routes()).use(boardRouter.allowedMethods());
 app.use(tasksRouter.routes()).use(tasksRouter.allowedMethods());

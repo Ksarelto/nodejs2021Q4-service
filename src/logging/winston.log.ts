@@ -1,4 +1,3 @@
-// eslint-disable-next-line node/no-missing-import
 import winston from "winston"
 import { LOGGING_LEVEL } from "../common/config"
 import { LogLevelsObject, LogColorsObject } from "../common/constants"
@@ -12,15 +11,13 @@ import { LogLevelsObject, LogColorsObject } from "../common/constants"
 export const setLogLevel = (level: string | undefined): string => {
   switch(level){
     case '0':
-    return 'error';
+    return 'crit';  
     case '1':
-    return 'warn';
+    return 'error';
     case '2':
-    return 'info';
-    case '3':
-    return 'http';
+    return 'warn';
     default:
-    return 'all'
+    return 'http'
   }
 }
 
@@ -52,6 +49,8 @@ const Logger = winston.createLogger({
     new winston.transports.File({
       filename: './src/logging/logs/error.txt',
       level: 'error',
+      handleRejections: true,
+      handleExceptions: true,
       format:  winston.format.combine(
         winston.format.timestamp({format: 'YYYY-MM-DD HH:mm:ss:ms'}),
         winston.format.uncolorize(),
@@ -59,7 +58,7 @@ const Logger = winston.createLogger({
           (info) => {
             const { timestamp, message, level } = info;
             return `Creating time: ${timestamp}
-             ${level.toUpperCase()}: ${message}`
+${level.toUpperCase()}: ${message}`
           },
         ),
       )
@@ -70,7 +69,11 @@ const Logger = winston.createLogger({
         (info) => `${info.level.toUpperCase()}: ${info.message}`,
       ), 
     }),
-  ]
+  ],
+})
+
+Logger.on('error', (err: Error) => {
+  Logger.error(err);
 })
 
 export default Logger

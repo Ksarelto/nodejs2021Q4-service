@@ -19,19 +19,18 @@ export class CustomErrors extends Error{
   }
 }
 
-/**
- * Custom class that extends class CustomErrors
- * @class ValidationErrors
- * @public
- */
+export const requestedObjects = {
+  task: 'Task',
+  board: 'Board',
+  user: 'User'
+}
 
-export class ValidationErrors extends CustomErrors {}
+export const errorNames = {
+  NFE : 'Not Found Error',
+  VE : 'Validation Eroor',
+}
 
-/**
- * Custom class that extends class CustomErrors
- * @class UsersErrors
- * @public
- */
-
-export class UsersErrors extends CustomErrors {}
-
+export const errorMessages = {
+  invalid: 'Invalid id of',
+  notExist: 'is not exist'
+}

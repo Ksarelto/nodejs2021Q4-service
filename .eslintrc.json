@@ -35,7 +35,7 @@
   "rules": {
     "node/no-missing-import": ["error", {
         "allowModules": [],
-        "tryExtensions": [".ts", ".json", ".node"]
+        "tryExtensions": [".ts", ".json", ".node", ".d.ts"]
     }],
     "linebreak-style": "off",
     "node/no-unsupported-features/es-syntax": "off",

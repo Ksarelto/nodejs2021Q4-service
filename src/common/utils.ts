@@ -81,7 +81,7 @@ export const successResponse = <T>(context: Context, data: T, code: number): voi
   context.body = JSON.stringify(data);
   finished(context.res, () => {
     const message = createInfoMessage(context);
-    Logger.info(message);
+    Logger.http(message);
   })
 };
 
@@ -124,6 +124,5 @@ export const errorResponse = (context: Context, error: unknown): void => {
  */
 export const uncaughtExeptionsHandler = (err: Error): void => {
   const message = createErrorMessage(err);
-  Logger.error(message);
-  process.exit(1);
+  Logger.crit(message);
 }

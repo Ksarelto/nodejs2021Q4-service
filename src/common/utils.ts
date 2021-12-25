@@ -42,10 +42,14 @@ export const validateID = (id: string | undefined): boolean => {
  * @returns - Searched Item
  */
 
-export const checkExistence = <T extends SearchedArray>(arr: T[], id: string | undefined, name: string): SearchedArray => {
+export const checkExistence = <T extends SearchedArray>(
+  arr: T[], id: string | undefined, name: string
+  ): SearchedArray => {
   if(!id) throw new CustomErrors(errorNames.VE, StatusCodes.invalidId, errorMessages.invalid + name);
   const searchedItem = arr.find((item) => item.id === id);
-  if (!searchedItem) throw new CustomErrors(errorNames.NFE, StatusCodes.notFound, name + errorMessages.notExist);
+  if (!searchedItem) throw new CustomErrors(
+    errorNames.NFE, StatusCodes.notFound, name + errorMessages.notExist
+    );
   return searchedItem;
 };
 

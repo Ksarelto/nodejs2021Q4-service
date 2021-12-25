@@ -33,6 +33,7 @@
     "prettier"
   ],
   "rules": {
+    "max-len": ["error", { "code": 160 }],
     "node/no-missing-import": ["error", {
         "allowModules": [],
         "tryExtensions": [".ts", ".json", ".node", ".d.ts"]

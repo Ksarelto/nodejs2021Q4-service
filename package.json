@@ -5,6 +5,7 @@
     "type": "git",
     "url": ""
   },
+  "type": "module",
   "description": "REST service starter for RS School",
   "main": "src/server.ts",
   "scripts": {
@@ -51,7 +52,6 @@
   "devDependencies": {
     "@types/koa": "^2.13.4",
     "@types/koa-router": "^7.4.4",
-    "@types/morgan": "^1.9.3",
     "@types/node": "^16.11.11",
     "@types/uuid": "^8.3.3",
     "@types/winston": "^2.4.4",

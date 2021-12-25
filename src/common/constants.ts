@@ -32,11 +32,10 @@ export const headers = {
  */
 
 export const LogLevelsObject = {
-  error: 0,
-  warn: 1,
-  info: 2,
-  http: 3,
-  all: 4
+  crit: 0,
+  error: 1,
+  warn: 2,
+  http: 3
 }
 
 /**
@@ -46,8 +45,8 @@ export const LogLevelsObject = {
  */
 
 export const LogColorsObject = {
+  crit: 'white redBG',
   error: 'red',
   warn: 'yellow',
-  info: 'green',
-  http: 'purple',
+  http: 'magenta',
 }

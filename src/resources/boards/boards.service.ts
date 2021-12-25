@@ -26,7 +26,9 @@ export const getAllBoards = () => getAllBoardsDB();
  */
 
 export const getOneBoard = async (id: string): Promise<Board> => {
-  if (!validateID(id)) throw new CustomErrors(errorNames.VE, StatusCodes.invalidId, errorMessages.invalid + requestedObjects.board);
+  if (!validateID(id)) throw new CustomErrors(
+    errorNames.VE, StatusCodes.invalidId, errorMessages.invalid + requestedObjects.board
+    );
   const board = await getOneBoardDB(id);
   return board;
 };
@@ -56,9 +58,13 @@ export const addBoard = async (data: Board): Promise<Board> => {
  */
 
 export const updateBoard = async (id: string, data: Board): Promise<Board> => {
-  if (!validateID(id)) throw new CustomErrors(errorNames.VE, StatusCodes.invalidId, errorMessages.invalid + requestedObjects.board);
+  if (!validateID(id)) throw new CustomErrors(
+    errorNames.VE, StatusCodes.invalidId, errorMessages.invalid + requestedObjects.board
+    );
   const updatedBoard = await updateBoardDB(id, data);
-  if(!updatedBoard) throw new CustomErrors(errorNames.NFE, StatusCodes.notFound, requestedObjects.board + errorMessages.notExist);
+  if(!updatedBoard) throw new CustomErrors(
+    errorNames.NFE, StatusCodes.notFound, requestedObjects.board + errorMessages.notExist
+    );
   return updatedBoard;
 };
 
@@ -71,7 +77,9 @@ export const updateBoard = async (id: string, data: Board): Promise<Board> => {
  */
 
 export const deleteBoard = async (id: string): Promise<Board[]> => {
-  if (!validateID(id)) throw new CustomErrors(errorNames.VE, StatusCodes.invalidId, errorMessages.invalid + requestedObjects.board);
+  if (!validateID(id)) throw new CustomErrors(
+    errorNames.VE, StatusCodes.invalidId, errorMessages.invalid + requestedObjects.board
+    );
   const boardsArray = await deleteBoardDB(id);
   return boardsArray;
 };

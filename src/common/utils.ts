@@ -6,7 +6,7 @@ import { finished } from "stream";
 import { User, SearchedArray } from "./types";
 import { headers, StatusCodes } from './constants';
 import Logger from "../logging/winston.log";
-import { CustomErrors, UsersErrors, ValidationErrors } from "./errors.object";
+import { CustomErrors, errorMessages, errorNames } from "./errors.object";
 
 /**
  * Remove field password from User object and return new User object
@@ -43,9 +43,9 @@ export const validateID = (id: string | undefined): boolean => {
  */
 
 export const checkExistence = <T extends SearchedArray>(arr: T[], id: string | undefined, name: string): SearchedArray => {
-  if(!id) throw new ValidationErrors('Id empty', StatusCodes.invalidId, 'Invalid id');
+  if(!id) throw new CustomErrors(errorNames.VE, StatusCodes.invalidId, errorMessages.invalid + name);
   const searchedItem = arr.find((item) => item.id === id);
-  if (!searchedItem) throw new UsersErrors('NotFound', StatusCodes.notFound, `Such ${name} is not found`);
+  if (!searchedItem) throw new CustomErrors(errorNames.NFE, StatusCodes.notFound, name + errorMessages.notExist);
   return searchedItem;
 };
 

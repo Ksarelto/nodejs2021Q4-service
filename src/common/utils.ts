@@ -37,6 +37,7 @@ export const validateID = (id: string | undefined): boolean => {
  * @param {T} arr - Array of Items
  * @param {string | undefined} id - Id of searched item in array
  * @param {string} name - Nmae of the Array of the Items
+ * @throws - Error message if id is not exist
  * @throws - Error message if searchedItem is not find
  * @returns - Searched Item
  */
@@ -48,7 +49,13 @@ export const checkExistence = <T extends SearchedArray>(arr: T[], id: string | u
   return searchedItem;
 };
 
-const createInfoMessage = (ctx: Context) => {
+/**
+ * Create an info message 
+ * @param {Context} ctx - Is an object that include request and response of server 
+ * @returns A message of type string
+ */
+
+const createInfoMessage = (ctx: Context): string => {
   const { params, method } = ctx;
   const { body, url } = ctx.request;
   const { statusCode } = ctx.res;
@@ -62,7 +69,7 @@ const createInfoMessage = (ctx: Context) => {
 }
 
 /**
- * Send success response with data to client
+ * Send success response with data to client and a log message to file and console
  * @param {Context} context - Is an object that include request and response of server
  * @param {T} data - Is some data that we should send to ckient
  * @param {number} code - Code number of response
@@ -78,7 +85,13 @@ export const successResponse = <T>(context: Context, data: T, code: number): voi
   })
 };
 
-export const createErrorMessage = (err: CustomErrors | Error) => `
+/**
+ * Create na error message
+ * @param {CustomErrors | Error} err - Error object 
+ * @returns - An error message of type string
+ */
+
+export const createErrorMessage = (err: CustomErrors | Error): string => `
     Name: ${JSON.stringify(err.name)}
     Message: ${JSON.stringify(err.message)}
     Stack: ${JSON.stringify(err.stack)}
@@ -86,10 +99,9 @@ export const createErrorMessage = (err: CustomErrors | Error) => `
     `
 
 /**
- * Send error response with error message to client
+ * Send error response with error message to client and a lod message to file and console
  * @param {Context} context - Is an object that include request and response of server
  * @param {unknown} error - Is Error object
- * @param {number} code - ode number of response
  * @returns - undefined
  */
 
@@ -105,7 +117,12 @@ export const errorResponse = (context: Context, error: unknown): void => {
   Logger.error(message);
 };
 
-export const uncaughtExeptionsHandler = (err: Error) => {
+/**
+ * Send a log message to console and file and exit the process
+ * @param {Error} err - An error object
+ * @returns - undefined 
+ */
+export const uncaughtExeptionsHandler = (err: Error): void => {
   const message = createErrorMessage(err);
   Logger.error(message);
   process.exit(1);

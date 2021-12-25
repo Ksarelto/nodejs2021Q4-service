@@ -25,6 +25,11 @@ export const headers = {
   'Content-Type': 'application/json',
 };
 
+/**
+ * The list of log levels 
+ * @constant log_levels
+ * @type {object}
+ */
 
 export const LogLevelsObject = {
   error: 0,
@@ -33,6 +38,12 @@ export const LogLevelsObject = {
   http: 3,
   all: 4
 }
+
+/**
+ * The list of colors for logs text 
+ * @constant log_colors
+ * @type {object}
+ */
 
 export const LogColorsObject = {
   error: 'red',

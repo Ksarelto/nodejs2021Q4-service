@@ -14,21 +14,35 @@ import { uncaughtExeptionsHandler } from './common/utils';
 
 const app = new Koa();
 
-app.use(koaBody());
-
-process.on('uncaughtException', (err) => {
-  uncaughtExeptionsHandler(err);
-});
-
-process.on('unhandledRejection', (err) => {
-  uncaughtExeptionsHandler(err as Error);
-})
-
 /**
  * Koa "use" method to parse request body
  * @remarks Method of Koa object(koa API)
  * @param {callback} koaBody that parse request body
  */
+
+app.use(koaBody());
+
+/**
+ * Event listener of UncaughtExeption
+ * @param {string} event - Name of event
+ * @param {callback} listener Callback called when event was called
+ * @returns - undefined
+ */
+
+process.on('uncaughtException', (err) => {
+  uncaughtExeptionsHandler(err);
+});
+
+/**
+ * Event listener of UnhandledRejection
+ * @param {string} event - Name of event
+ * @param {callback} listener Callback called when event was called
+ * @returns - undefined
+ */
+
+process.on('unhandledRejection', (err) => {
+  uncaughtExeptionsHandler(err as Error);
+})
 
 /**
  * Koa "use" method checking the url path for "/"

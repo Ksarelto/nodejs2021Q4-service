@@ -3,7 +3,13 @@ import winston from "winston"
 import { LOGGING_LEVEL } from "../common/config"
 import { LogLevelsObject, LogColorsObject } from "../common/constants"
 
-export const setLogLevel = (level: string | undefined) => {
+/**
+ * Set the log level
+ * @param {string | undefined} level The number of log level 
+ * @returns - The name of the log level of type string
+ */
+
+export const setLogLevel = (level: string | undefined): string => {
   switch(level){
     case '0':
     return 'error';
@@ -13,15 +19,19 @@ export const setLogLevel = (level: string | undefined) => {
     return 'info';
     case '3':
     return 'http';
-    case '4':
-    return 'all'
     default:
-    return undefined
+    return 'all'
   }
 }
 
-
+/**
+ * Winston object method to add colors to messages
+ */
 winston.addColors(LogColorsObject)
+
+/**
+ * Winston object method to create a log object
+ */
 
 const Logger = winston.createLogger({
   level: setLogLevel(LOGGING_LEVEL),
@@ -48,7 +58,8 @@ const Logger = winston.createLogger({
         winston.format.printf(
           (info) => {
             const { timestamp, message, level } = info;
-            return `Creating time: ${timestamp}/n ${level.toUpperCase()}: ${message}`
+            return `Creating time: ${timestamp}
+             ${level.toUpperCase()}: ${message}`
           },
         ),
       )

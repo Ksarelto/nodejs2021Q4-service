@@ -3,10 +3,21 @@
  */
 import { v4 as uuidv4 } from 'uuid';
 import { StatusCodes } from '../../common/constants';
-import { CustomErrors, errorMessages, errorNames, requestedObjects } from '../../common/errors.object';
+import {
+  CustomErrors,
+  errorMessages,
+  errorNames,
+  requestedObjects,
+} from '../../common/errors.object';
 import { Task } from '../../common/types';
 import { validateID } from '../../common/utils';
-import { getAllTasksDB, getOneTaskDB, addTaskDB, updateTaskDB, deleteTaskDB} from './tasks.memory';
+import {
+  getAllTasksDB,
+  getOneTaskDB,
+  addTaskDB,
+  updateTaskDB,
+  deleteTaskDB,
+} from './tasks.memory';
 
 /**
  * Validate id and return array of Tasks objects
@@ -17,11 +28,14 @@ import { getAllTasksDB, getOneTaskDB, addTaskDB, updateTaskDB, deleteTaskDB} fro
  */
 
 export const getAllTasks = async (id: string): Promise<Task[]> => {
-  if (!validateID(id)) throw new CustomErrors(
-    errorNames.VE, StatusCodes.invalidId, errorMessages.invalid + requestedObjects.board 
+  if (!validateID(id))
+    throw new CustomErrors(
+      errorNames.VE,
+      StatusCodes.invalidId,
+      errorMessages.invalid + requestedObjects.board
     );
   const allTasks = await getAllTasksDB(id);
-  return allTasks
+  return allTasks;
 };
 
 /**
@@ -33,20 +47,28 @@ export const getAllTasks = async (id: string): Promise<Task[]> => {
  * @returns - The Task object
  */
 
-export const getOneTask = async (params: Record<string, string>): Promise<Task> => {
-  const {boardId, taskId} = params;
-  if (!validateID(boardId)) throw new CustomErrors(
-    errorNames.VE, StatusCodes.invalidId, errorMessages.invalid + requestedObjects.board
+export const getOneTask = async (
+  params: Record<string, string>
+): Promise<Task> => {
+  const { boardId, taskId } = params;
+  if (!validateID(boardId))
+    throw new CustomErrors(
+      errorNames.VE,
+      StatusCodes.invalidId,
+      errorMessages.invalid + requestedObjects.board
     );
-  if (!validateID(taskId)) throw new CustomErrors(
-    errorNames.VE, StatusCodes.invalidId, errorMessages.invalid + requestedObjects.task
+  if (!validateID(taskId))
+    throw new CustomErrors(
+      errorNames.VE,
+      StatusCodes.invalidId,
+      errorMessages.invalid + requestedObjects.task
     );
   const oneTask = await getOneTaskDB(params);
   return oneTask;
 };
 
 /**
- * Validate id, create new Task object, return this Task 
+ * Validate id, create new Task object, return this Task
  * @async
  * @param {string} id The boardId of Task object
  * @param {Task} data Data to create new Task
@@ -73,18 +95,29 @@ export const addTask = async (id: string, data: Task): Promise<Task> => {
  * @returns - The updated Task object
  */
 
-
-export const updateTask = async (params: Record<string, string>, data: Task): Promise<Task> => {
-  const {boardId, taskId} = params;
-  if (!validateID(boardId)) throw new CustomErrors(
-    errorNames.VE, StatusCodes.invalidId, errorMessages.invalid + requestedObjects.board
+export const updateTask = async (
+  params: Record<string, string>,
+  data: Task
+): Promise<Task> => {
+  const { boardId, taskId } = params;
+  if (!validateID(boardId))
+    throw new CustomErrors(
+      errorNames.VE,
+      StatusCodes.invalidId,
+      errorMessages.invalid + requestedObjects.board
     );
-  if (!validateID(taskId)) throw new CustomErrors(
-    errorNames.VE, StatusCodes.invalidId, errorMessages.invalid + requestedObjects.task
+  if (!validateID(taskId))
+    throw new CustomErrors(
+      errorNames.VE,
+      StatusCodes.invalidId,
+      errorMessages.invalid + requestedObjects.task
     );
   const updatedTask = await updateTaskDB(params, data);
-  if(!updatedTask) throw new CustomErrors(
-    errorNames.NFE, StatusCodes.notFound, requestedObjects.task + errorMessages.notExist
+  if (!updatedTask)
+    throw new CustomErrors(
+      errorNames.NFE,
+      StatusCodes.notFound,
+      requestedObjects.task + errorMessages.notExist
     );
   return updatedTask;
 };
@@ -98,13 +131,21 @@ export const updateTask = async (params: Record<string, string>, data: Task): Pr
  * @returns - The new array of Task objects
  */
 
-export const deleteTask = async (params: Record<string, string>): Promise<Task[]> => {
-  const {boardId, taskId} = params;
-  if (!validateID(boardId)) throw new CustomErrors(
-    errorNames.VE, StatusCodes.invalidId, errorMessages.invalid + requestedObjects.board
+export const deleteTask = async (
+  params: Record<string, string>
+): Promise<Task[]> => {
+  const { boardId, taskId } = params;
+  if (!validateID(boardId))
+    throw new CustomErrors(
+      errorNames.VE,
+      StatusCodes.invalidId,
+      errorMessages.invalid + requestedObjects.board
     );
-  if (!validateID(taskId)) throw new CustomErrors(
-    errorNames.VE, StatusCodes.invalidId, errorMessages.invalid + requestedObjects.task
+  if (!validateID(taskId))
+    throw new CustomErrors(
+      errorNames.VE,
+      StatusCodes.invalidId,
+      errorMessages.invalid + requestedObjects.task
     );
   const newTasksArray = await deleteTaskDB(params);
   return newTasksArray;

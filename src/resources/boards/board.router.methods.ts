@@ -4,7 +4,7 @@
 
 import { Context } from 'koa';
 import { StatusCodes } from '../../common/constants';
-import { successResponse} from '../../common/utils';
+import { successResponseHandler} from '../../handlers/response.handlers';
 import { getAllBoards, getOneBoard, addBoard, updateBoard, deleteBoard} from './boards.service';
 
 
@@ -17,7 +17,7 @@ import { getAllBoards, getOneBoard, addBoard, updateBoard, deleteBoard} from './
 
 export const boardRouterGetAll = async (ctx: Context): Promise<void> => {
     const boards = await getAllBoards();
-    successResponse(ctx, boards, StatusCodes.successCode);
+    successResponseHandler(ctx, boards, StatusCodes.successCode);
 }
 
 /**
@@ -31,7 +31,7 @@ export const boardRouterGetOne = async (ctx: Context): Promise<void> => {
     const {params} = ctx;
     const param = params.boardId;
     const board = await getOneBoard(param);
-    successResponse(ctx, board, StatusCodes.successCode);
+    successResponseHandler(ctx, board, StatusCodes.successCode);
 }
 
 /**
@@ -44,7 +44,7 @@ export const boardRouterGetOne = async (ctx: Context): Promise<void> => {
 export const boardRouterPost = async (ctx: Context): Promise<void> => {
     const { body } = ctx.request;
     const board = await addBoard(body);
-    successResponse(ctx, board, StatusCodes.successCreate);
+    successResponseHandler(ctx, board, StatusCodes.successCreate);
 }
 
 /**
@@ -59,7 +59,7 @@ export const boardRouterPut = async (ctx: Context): Promise<void> => {
     const id = params.boardId;
     const { body } = ctx.request;
     const board = await updateBoard(id, body);
-    successResponse(ctx, board, StatusCodes.successCode);
+    successResponseHandler(ctx, board, StatusCodes.successCode);
 }
 
 /**
@@ -73,5 +73,5 @@ export const boardRouterDelete = async (ctx: Context): Promise<void> => {
     const {params} = ctx;
     const id = params.boardId;
     const board = await deleteBoard(id);
-    successResponse(ctx, board, StatusCodes.successDelete);
+    successResponseHandler(ctx, board, StatusCodes.successDelete);
 }

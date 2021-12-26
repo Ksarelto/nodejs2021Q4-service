@@ -3,7 +3,7 @@
  */
 import { Context } from 'koa';
 import { StatusCodes } from '../../common/constants';
-import { successResponse } from '../../common/utils';
+import { successResponseHandler } from '../../handlers/response.handlers';
 import { getAllTasks, getOneTask, addTask, updateTask, deleteTask} from './tasks.service';
 
 /**
@@ -17,7 +17,7 @@ export const taskRouterGetAll = async (ctx: Context): Promise<void> => {
   const {params} = ctx;
   const id = params.boardId;
   const tasks = await getAllTasks(id);
-  successResponse(ctx, tasks, StatusCodes.successCode);
+  successResponseHandler(ctx, tasks, StatusCodes.successCode);
 
 }
 
@@ -31,7 +31,7 @@ export const taskRouterGetAll = async (ctx: Context): Promise<void> => {
 export const taskRouterGetOne = async (ctx: Context): Promise<void> => {
   const {params} = ctx;
   const task = await getOneTask(params);
-  successResponse(ctx, task, StatusCodes.successCode);
+  successResponseHandler(ctx, task, StatusCodes.successCode);
 }
 
 /**
@@ -46,7 +46,7 @@ export const taskRouterPost = async (ctx: Context): Promise<void> => {
   const {params} = ctx;
   const id = params.boardId;
   const task = await addTask(id, body);
-  successResponse(ctx, task, StatusCodes.successCreate);
+  successResponseHandler(ctx, task, StatusCodes.successCreate);
 }
 
 /**
@@ -60,7 +60,7 @@ export const taskRouterPut = async (ctx: Context): Promise<void> => {
   const { params } = ctx;
   const { body } = ctx.request;
   const task = await updateTask(params, body);
-  successResponse(ctx, task, StatusCodes.successCode);
+  successResponseHandler(ctx, task, StatusCodes.successCode);
 }
 /**
  * Function implement DELETE method of taskRouter
@@ -72,5 +72,5 @@ export const taskRouterPut = async (ctx: Context): Promise<void> => {
 export const taskRouterDelete = async (ctx: Context): Promise<void> => {
   const { params } = ctx;
   const task = await deleteTask(params);
-  successResponse(ctx, task, StatusCodes.successDelete);
+  successResponseHandler(ctx, task, StatusCodes.successDelete);
 }

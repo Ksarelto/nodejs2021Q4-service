@@ -5,7 +5,8 @@
 import { Context } from 'koa';
 import { StatusCodes } from '../../common/constants';
 import { User } from '../../common/types';
-import { toResponse, successResponse } from '../../common/utils';
+import { toResponse } from '../../common/utils';
+import { successResponseHandler } from '../../handlers/response.handlers';
 import { getAll, getOne, addUser, updateUser, deleteUser} from './user.service';
 
 /**
@@ -19,7 +20,7 @@ export const userRouterGetAll = async (ctx: Context): Promise<void> => {
   const users = await getAll();
   const response = users.map((user: User) => toResponse(user));
   if (response) {
-    successResponse(ctx, response, StatusCodes.successCode);
+    successResponseHandler(ctx, response, StatusCodes.successCode);
   }
 }
 
@@ -34,7 +35,7 @@ export const userRouterGetOne = async (ctx: Context): Promise<void> => {
   const {params} = ctx;
   const id = params.userId;
   const user = await getOne(id);
-  successResponse(ctx, toResponse(user), StatusCodes.successCode);
+  successResponseHandler(ctx, toResponse(user), StatusCodes.successCode);
 }
 
 /**
@@ -47,7 +48,7 @@ export const userRouterGetOne = async (ctx: Context): Promise<void> => {
 export const userRouterPost = async (ctx: Context): Promise<void> => {
   const { body } = ctx.request;
   const response = await addUser(body);
-  successResponse(ctx, toResponse(response), StatusCodes.successCreate);
+  successResponseHandler(ctx, toResponse(response), StatusCodes.successCreate);
 }
 
 /**
@@ -62,7 +63,7 @@ export const userRouterPut = async (ctx: Context): Promise<void> => {
   const id = params.userId;
   const { body } = ctx.request;
   const response = await updateUser(id, body);
-  successResponse(ctx, toResponse(response), StatusCodes.successCode);
+  successResponseHandler(ctx, toResponse(response), StatusCodes.successCode);
 }
 
 /**
@@ -76,5 +77,5 @@ export const userRouterDelete = async (ctx: Context): Promise<void> => {
   const {params} = ctx;
   const id = params.userId;
   await deleteUser(id);
-  successResponse(ctx, null, StatusCodes.successDelete);
+  successResponseHandler(ctx, null, StatusCodes.successDelete);
 }

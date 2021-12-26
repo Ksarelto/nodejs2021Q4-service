@@ -20,7 +20,7 @@ git clone {repository URL}
 ## Checkout to develop branch
 
 ```
-git checkout develop-REST-service-typescript
+git checkout develop-REST-service-logging
 ```
 
 ## Installing NPM modules

@@ -6,7 +6,8 @@ import koaBody from 'koa-body';
 import { userRouter } from './resources/users/user.router';
 import { boardRouter } from './resources/boards/boards.router';
 import { tasksRouter } from './resources/tasks/tasks.router';
-import { errorResponse, uncaughtExeptionsHandler } from './common/utils';
+import { errorResponseHandler } from './handlers/response.handlers';
+import { notFoundHandler, uncaughtExeptionsHandler } from './handlers/other.handlers';
 
 /**
  * @constant {Koa} app is an object of Koa class 
@@ -72,12 +73,13 @@ app.use(async (ctx, next: () => Promise<unknown>) => {
   try{
     await next()
   } catch(err){
-    errorResponse(ctx, err);
+    errorResponseHandler(ctx, err);
   }
 });
 
 app.use(userRouter.routes()).use(userRouter.allowedMethods());
 app.use(boardRouter.routes()).use(boardRouter.allowedMethods());
 app.use(tasksRouter.routes()).use(tasksRouter.allowedMethods());
+app.use(notFoundHandler);
 
 export default app;

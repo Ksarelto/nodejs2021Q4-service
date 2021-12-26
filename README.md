@@ -14,7 +14,7 @@ git clone {repository URL}
 ## Checkout to develop branch
 
 ```
-git checkout develop-REST-service
+git checkout develop-REST-service-typescript
 ```
 
 ## Installing NPM modules
@@ -54,6 +54,18 @@ npm test <suite name>
 ## Usage
 
 If you want to test an application by yourself, you can use testing API application like <kbd>Postman</kbd>.
+
+## TypeDoc
+
+If you wnat to generate typedoc documentation you should do the following:
+
+1. Run command in command line:
+
+```
+npm run generate:docs
+```
+
+2. After coomand will generated folder docs, you need to open with liveserver file **docs/index.html**
 
 ### Auto-fix and format
 

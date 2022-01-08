@@ -1,5 +1,24 @@
 # RS School REST service
 
+## Docker
+
+If you want to use Docker:
+
+- Open your IDE and run in terminal "git clone https://github.com/Ksarelto/nodejs2021Q4-service.git"
+- Run in terminal command "git checkout develop-REST-service-docker"
+- In command line run command "docker-compose up"
+
+If you want to download app image from Docker Hub:
+
+- Open your IDE and run in terminal "docker pull artsiomusc72/rest-service:latest"
+- Run in terminal command "docker run -p 4000:4000 artsiomusc72/rest-service"
+
+If you want to test application in Docker container:
+
+- Run application with Docker
+- Run in terminal command "docker exec -i -t {ID of docker container with application} sh
+- Enter command in terminal "npm run test"
+
 ## Logging
 
 - In this application is implemented logging. The logging object is located in **src/logging/winston.log.ts**;
@@ -20,7 +39,7 @@ git clone {repository URL}
 ## Checkout to develop branch
 
 ```
-git checkout develop-REST-service-typescript
+git checkout develop-REST-service-logging
 ```
 
 ## Installing NPM modules

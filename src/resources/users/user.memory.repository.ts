@@ -2,7 +2,7 @@
  * @module users_memory_methods
  */
 
-import {db} from '../../../db/db';
+import { db } from '../../../db/db';
 import { Task, User } from '../../common/types';
 import { checkExistence } from '../../common/utils';
 
@@ -26,9 +26,9 @@ export const getAllDB = async (): Promise<User[]> => {
  */
 
 export const getOneDB = async (id: string): Promise<User> => {
-  const {users} = await db;
+  const { users } = await db;
   const foundedUser = users.find((user: User) => user.id === id);
-  if(!foundedUser) throw new Error('User is not exist');
+  if (!foundedUser) throw new Error('User is not exist');
   return foundedUser;
 };
 
@@ -53,12 +53,15 @@ export const addUserDB = async (data: User): Promise<User> => {
  * @returns - The updated User object
  */
 
-export const updateUserDB = async (id: string, data: User): Promise<User | undefined> => {
+export const updateUserDB = async (
+  id: string,
+  data: User
+): Promise<User | undefined> => {
   const { users } = await db;
   checkExistence(users, id, 'User');
   const updatedUsers = users.map((user: User) => {
     if (user.id === id) {
-     return { ...data, id: user.id };
+      return { ...data, id: user.id };
     }
     return user;
   });
@@ -87,4 +90,3 @@ export const deleteUserDB = async (id: string): Promise<User[]> => {
   db.tasks = newTasksArray;
   return newUsersArray;
 };
-

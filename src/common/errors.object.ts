@@ -7,14 +7,18 @@
  * @class CustomErrors
  * @public
  */
-export class CustomErrors extends Error{
+export class CustomErrors extends Error {
   /**
    * Constructor of class CustomErrors
-   * @param {string} name name of the error 
+   * @param {string} name name of the error
    * @param {number} code response status code
    * @param {string} message message of error
    */
-  constructor(public name: string, public code: number, public message: string){
+  constructor(
+    public name: string,
+    public code: number,
+    public message: string
+  ) {
     super(name);
   }
 }
@@ -22,15 +26,15 @@ export class CustomErrors extends Error{
 export const requestedObjects = {
   task: 'Task',
   board: 'Board',
-  user: 'User'
-}
+  user: 'User',
+};
 
 export const errorNames = {
-  NFE : 'Not Found Error',
-  VE : 'Validation Eroor',
-}
+  NFE: 'Not Found Error',
+  VE: 'Validation Eroor',
+};
 
 export const errorMessages = {
   invalid: 'Invalid id of ',
-  notExist: ' is not exist'
-}
+  notExist: ' is not exist',
+};

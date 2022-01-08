@@ -7,10 +7,13 @@ import { userRouter } from './resources/users/user.router';
 import { boardRouter } from './resources/boards/boards.router';
 import { tasksRouter } from './resources/tasks/tasks.router';
 import { errorResponseHandler } from './handlers/response.handlers';
-import { notFoundHandler, uncaughtExeptionsHandler } from './handlers/other.handlers';
+import {
+  notFoundHandler,
+  uncaughtExeptionsHandler,
+} from './handlers/other.handlers';
 
 /**
- * @constant {Koa} app is an object of Koa class 
+ * @constant {Koa} app is an object of Koa class
  */
 
 const app = new Koa();
@@ -43,8 +46,7 @@ process.on('uncaughtException', (err) => {
 
 process.on('unhandledRejection', (err) => {
   uncaughtExeptionsHandler(err as Error);
-})
-
+});
 
 /**
  * Koa "use" method checking the url path for "/"
@@ -70,9 +72,9 @@ app.use(async (ctx, next): Promise<void> => {
  * @returns - undefined
  */
 app.use(async (ctx, next: () => Promise<unknown>) => {
-  try{
-    await next()
-  } catch(err){
+  try {
+    await next();
+  } catch (err) {
     errorResponseHandler(ctx, err);
   }
 });

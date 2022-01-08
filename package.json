@@ -8,10 +8,11 @@
   "description": "REST service starter for RS School",
   "main": "src/server.ts",
   "scripts": {
-    "start": "nodemon src/server.ts",
+    "start": "nodemon -L src/server.ts",
     "build": "tsc && node dist//src/server.js",
     "generate:docs": "npx typedoc --entryPointStrategy expand ./src ./db",
     "lint": "eslint --ext .js,.ts --fix src/",
+    "pre": "prettier --write src/",
     "test": "cross-env DEBUG=rs:* jest --testMatch \"<rootDir>/test/e2e/test/*.test.js\" --noStackTrace --runInBand",
     "test:auth": "cross-env DEBUG=rs:* TEST_MODE=auth jest --noStackTrace"
   },
@@ -67,9 +68,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-tsdoc": "^0.2.14",
-    "husky": "^4.3.8",
     "jest": "27.3.1",
-    "lint-staged": "12.0.3",
     "nodemon": "2.0.15",
     "prettier": "2.4.1",
     "supertest": "6.1.6",

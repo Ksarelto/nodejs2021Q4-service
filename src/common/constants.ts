@@ -26,7 +26,7 @@ export const headers = {
 };
 
 /**
- * The list of log levels 
+ * The list of log levels
  * @constant log_levels
  * @type {object}
  */
@@ -35,11 +35,11 @@ export const LogLevelsObject = {
   crit: 0,
   error: 1,
   warn: 2,
-  http: 3
-}
+  http: 3,
+};
 
 /**
- * The list of colors for logs text 
+ * The list of colors for logs text
  * @constant log_colors
  * @type {object}
  */
@@ -49,4 +49,4 @@ export const LogColorsObject = {
   error: 'red',
   warn: 'yellow',
   http: 'magenta',
-}
+};

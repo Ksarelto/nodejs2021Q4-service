@@ -3,7 +3,8 @@
   "parser": "@typescript-eslint/parser",
   "plugins" : [
     "@typescript-eslint/eslint-plugin",
-    "eslint-plugin-tsdoc"
+    "eslint-plugin-tsdoc",
+    "prettier"
   ],
   "parserOptions": {
     "sourceType": "module",
@@ -30,15 +31,21 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:node/recommended",
     "airbnb-base",
-    "prettier"
+    "prettier",
+    "plugin:prettier/recommended"
   ],
   "rules": {
+    "max-len": ["error", { "code": 160 }],
     "node/no-missing-import": ["error", {
         "allowModules": [],
-        "tryExtensions": [".ts", ".json", ".node"]
+        "tryExtensions": [".ts", ".json", ".node", ".d.ts"]
     }],
     "linebreak-style": "off",
     "node/no-unsupported-features/es-syntax": "off",
+    "max-classes-per-file": [
+        "error",
+        { "ignoreExpressions": true, "max": 3 }
+    ],
     "no-underscore-dangle": "off",
     "import/prefer-default-export": "off",
     "@typescript-eslint/no-explicit-any": 2,

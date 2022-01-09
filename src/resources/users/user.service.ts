@@ -3,9 +3,22 @@
  */
 
 import { v4 as uuidv4 } from 'uuid';
+import { StatusCodes } from '../../common/constants';
+import {
+  CustomErrors,
+  errorNames,
+  errorMessages,
+  requestedObjects,
+} from '../../common/errors.object';
 import { User } from '../../common/types';
 import { validateID } from '../../common/utils';
-import { getAllDB, getOneDB, addUserDB, updateUserDB, deleteUserDB} from './user.memory.repository';
+import {
+  getAllDB,
+  getOneDB,
+  addUserDB,
+  updateUserDB,
+  deleteUserDB,
+} from './user.memory.repository';
 
 /**
  * Return the array of Users
@@ -23,7 +36,12 @@ export const getAll = () => getAllDB();
  */
 
 export const getOne = async (id: string): Promise<User> => {
-  if (!validateID(id)) throw new Error('Invalid id');
+  if (!validateID(id))
+    throw new CustomErrors(
+      errorNames.VE,
+      StatusCodes.invalidId,
+      errorMessages.invalid + requestedObjects.user
+    );
   const oneUser = await getOneDB(id);
   return oneUser;
 };
@@ -53,9 +71,19 @@ export const addUser = async (data: User): Promise<User> => {
  */
 
 export const updateUser = async (id: string, data: User): Promise<User> => {
-  if (!validateID(id)) throw new Error('Invalid id');
+  if (!validateID(id))
+    throw new CustomErrors(
+      errorNames.VE,
+      StatusCodes.invalidId,
+      errorMessages.invalid + requestedObjects.user
+    );
   const updatedUser = await updateUserDB(id, data);
-  if(!updatedUser) throw new Error('Updated user is not exist');
+  if (!updatedUser)
+    throw new CustomErrors(
+      errorNames.NFE,
+      StatusCodes.notFound,
+      requestedObjects.user + errorMessages.notExist
+    );
   return updatedUser;
 };
 
@@ -67,7 +95,12 @@ export const updateUser = async (id: string, data: User): Promise<User> => {
  * @returns - The new User array
  */
 export const deleteUser = async (id: string): Promise<User[]> => {
-  if (!validateID(id)) throw new Error('Invalid id');
+  if (!validateID(id))
+    throw new CustomErrors(
+      errorNames.VE,
+      StatusCodes.invalidId,
+      errorMessages.invalid + requestedObjects.user
+    );
   const newUsersArray = deleteUserDB(id);
   return newUsersArray;
 };

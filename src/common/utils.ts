@@ -1,9 +1,9 @@
 /**
  * @module utils
  */
-import { Context } from "koa";
-import { User, SearchedArray } from "./types";
-import { headers } from './constants';
+import { User, SearchedArray } from './types';
+import { StatusCodes } from './constants';
+import { CustomErrors, errorMessages, errorNames } from './errors.object';
 
 /**
  * Remove field password from User object and return new User object
@@ -11,7 +11,7 @@ import { headers } from './constants';
  * @returns - The User without field password
  */
 
-export const toResponse = (user: User): Omit<User,'password'> => {
+export const toResponse = (user: User): Omit<User, 'password'> => {
   const { name, login, id } = user;
   return { name, login, id };
 };
@@ -34,39 +34,28 @@ export const validateID = (id: string | undefined): boolean => {
  * @param {T} arr - Array of Items
  * @param {string | undefined} id - Id of searched item in array
  * @param {string} name - Nmae of the Array of the Items
+ * @throws - Error message if id is not exist
  * @throws - Error message if searchedItem is not find
  * @returns - Searched Item
  */
 
-export const checkExistence = <T extends SearchedArray>(arr: T[], id: string | undefined, name: string): SearchedArray => {
-  if(!id) throw new Error(`Id is not defined`);
+export const checkExistence = <T extends SearchedArray>(
+  arr: T[],
+  id: string | undefined,
+  name: string
+): SearchedArray => {
+  if (!id)
+    throw new CustomErrors(
+      errorNames.VE,
+      StatusCodes.invalidId,
+      errorMessages.invalid + name
+    );
   const searchedItem = arr.find((item) => item.id === id);
-  if (!searchedItem) throw new Error(`${name} with such id is not defined`);
+  if (!searchedItem)
+    throw new CustomErrors(
+      errorNames.NFE,
+      StatusCodes.notFound,
+      name + errorMessages.notExist
+    );
   return searchedItem;
-};
-
-/**
- * Send success response with data to client
- * @param {Context} context - Is an object that include request and response of server
- * @param {T} data - Is some data that we should send to ckient
- * @param {number} code - Code number of response
- * @returns - undefined 
- */
-
-export const successResponse = <T>(context: Context, data: T, code: number): void => {
-  context.res.writeHead(code, headers);
-  context.body = JSON.stringify(data);
-};
-
-/**
- * Send error response with error message to client
- * @param {Context} context - Is an object that include request and response of server
- * @param {unknown} error - Is Error object
- * @param {number} code - ode number of response
- * @returns - undefined
- */
-
-export const errorResponse = (context: Context, error: unknown, code: number): void => {
-  context.response.status = code;
-  context.body = (error as Error).message;
 };

@@ -6,9 +6,14 @@ import koaBody from 'koa-body';
 import { userRouter } from './resources/users/user.router';
 import { boardRouter } from './resources/boards/boards.router';
 import { tasksRouter } from './resources/tasks/tasks.router';
+import { errorResponseHandler } from './handlers/response.handlers';
+import {
+  notFoundHandler,
+  uncaughtExeptionsHandler,
+} from './handlers/other.handlers';
 
 /**
- * @constant {Koa} app is an object of Koa class 
+ * @constant {Koa} app is an object of Koa class
  */
 
 const app = new Koa();
@@ -20,6 +25,28 @@ const app = new Koa();
  */
 
 app.use(koaBody());
+
+/**
+ * Event listener of UncaughtExeption
+ * @param {string} event - Name of event
+ * @param {callback} listener Callback called when event was called
+ * @returns - undefined
+ */
+
+process.on('uncaughtException', (err) => {
+  uncaughtExeptionsHandler(err);
+});
+
+/**
+ * Event listener of UnhandledRejection
+ * @param {string} event - Name of event
+ * @param {callback} listener Callback called when event was called
+ * @returns - undefined
+ */
+
+process.on('unhandledRejection', (err) => {
+  uncaughtExeptionsHandler(err as Error);
+});
 
 /**
  * Koa "use" method checking the url path for "/"
@@ -37,8 +64,24 @@ app.use(async (ctx, next): Promise<void> => {
   next();
 });
 
+/**
+ * Koa "use" method for handling errors
+ *@remarks Method of Koa object(koa API)
+ * @async
+ * @param {callback} callback with to arguments ctx: Context and next: Function to call next method
+ * @returns - undefined
+ */
+app.use(async (ctx, next: () => Promise<unknown>) => {
+  try {
+    await next();
+  } catch (err) {
+    errorResponseHandler(ctx, err);
+  }
+});
+
 app.use(userRouter.routes()).use(userRouter.allowedMethods());
 app.use(boardRouter.routes()).use(boardRouter.allowedMethods());
 app.use(tasksRouter.routes()).use(tasksRouter.allowedMethods());
+app.use(notFoundHandler);
 
 export default app;

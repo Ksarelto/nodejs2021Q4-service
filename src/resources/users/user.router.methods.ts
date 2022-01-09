@@ -5,8 +5,15 @@
 import { Context } from 'koa';
 import { StatusCodes } from '../../common/constants';
 import { User } from '../../common/types';
-import { toResponse, successResponse, errorResponse } from '../../common/utils';
-import { getAll, getOne, addUser, updateUser, deleteUser} from './user.service';
+import { toResponse } from '../../common/utils';
+import { successResponseHandler } from '../../handlers/response.handlers';
+import {
+  getAll,
+  getOne,
+  addUser,
+  updateUser,
+  deleteUser,
+} from './user.service';
 
 /**
  * Function implement GET method of userRouter(get all users)
@@ -16,16 +23,12 @@ import { getAll, getOne, addUser, updateUser, deleteUser} from './user.service';
  */
 
 export const userRouterGetAll = async (ctx: Context): Promise<void> => {
-  try {
-    const users = await getAll();
-    const response = users.map((user: User) => toResponse(user));
-    if (response) {
-      successResponse(ctx, response, StatusCodes.successCode);
-    }
-  } catch (err: unknown) {
-    errorResponse(ctx, err, StatusCodes.internalError);
+  const users = await getAll();
+  const response = users.map((user: User) => toResponse(user));
+  if (response) {
+    successResponseHandler(ctx, response, StatusCodes.successCode);
   }
-}
+};
 
 /**
  * Function implement GET method of userRouter (get one User)
@@ -35,15 +38,11 @@ export const userRouterGetAll = async (ctx: Context): Promise<void> => {
  */
 
 export const userRouterGetOne = async (ctx: Context): Promise<void> => {
-  try {
-    const {params} = ctx;
-    const id = params.userId;
-    const user = await getOne(id);
-    successResponse(ctx, toResponse(user), StatusCodes.successCode);
-  } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
-  }
-}
+  const { params } = ctx;
+  const id = params.userId;
+  const user = await getOne(id);
+  successResponseHandler(ctx, toResponse(user), StatusCodes.successCode);
+};
 
 /**
  * Function implement POST method of userRouter
@@ -53,14 +52,10 @@ export const userRouterGetOne = async (ctx: Context): Promise<void> => {
  */
 
 export const userRouterPost = async (ctx: Context): Promise<void> => {
-  try {
-    const { body } = ctx.request;
-    const response = await addUser(body);
-    successResponse(ctx, toResponse(response), StatusCodes.successCreate);
-  } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
-  }
-}
+  const { body } = ctx.request;
+  const response = await addUser(body);
+  successResponseHandler(ctx, toResponse(response), StatusCodes.successCreate);
+};
 
 /**
  * Function implement PUT method of userRouter
@@ -70,16 +65,12 @@ export const userRouterPost = async (ctx: Context): Promise<void> => {
  */
 
 export const userRouterPut = async (ctx: Context): Promise<void> => {
-  try {
-    const {params} = ctx;
-    const id = params.userId;
-    const { body } = ctx.request;
-    const response = await updateUser(id, body);
-    successResponse(ctx, toResponse(response), StatusCodes.successCode);
-  } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
-  }
-}
+  const { params } = ctx;
+  const id = params.userId;
+  const { body } = ctx.request;
+  const response = await updateUser(id, body);
+  successResponseHandler(ctx, toResponse(response), StatusCodes.successCode);
+};
 
 /**
  * Function implement DELETE method of userRouter
@@ -89,12 +80,8 @@ export const userRouterPut = async (ctx: Context): Promise<void> => {
  */
 
 export const userRouterDelete = async (ctx: Context): Promise<void> => {
-  try {
-    const {params} = ctx;
-    const id = params.userId;
-    await deleteUser(id);
-    successResponse(ctx, null, StatusCodes.successDelete);
-  } catch (err) {
-    errorResponse(ctx, err, StatusCodes.internalError);
-  }
-}
+  const { params } = ctx;
+  const id = params.userId;
+  await deleteUser(id);
+  successResponseHandler(ctx, null, StatusCodes.successDelete);
+};

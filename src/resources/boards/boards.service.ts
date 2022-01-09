@@ -3,9 +3,22 @@
  */
 
 import { v4 as uuidv4 } from 'uuid';
+import { StatusCodes } from '../../common/constants';
+import {
+  CustomErrors,
+  errorMessages,
+  errorNames,
+  requestedObjects,
+} from '../../common/errors.object';
 import { Board } from '../../common/types';
 import { validateID } from '../../common/utils';
-import { getAllBoardsDB, getOneBoardDB, addBoardDB, updateBoardDB, deleteBoardDB} from './boards.memory';
+import {
+  getAllBoardsDB,
+  getOneBoardDB,
+  addBoardDB,
+  updateBoardDB,
+  deleteBoardDB,
+} from './boards.memory';
 
 /**
  * Return the array of Boards objects
@@ -24,7 +37,12 @@ export const getAllBoards = () => getAllBoardsDB();
  */
 
 export const getOneBoard = async (id: string): Promise<Board> => {
-  if (!validateID(id)) throw new Error('Invalid id');
+  if (!validateID(id))
+    throw new CustomErrors(
+      errorNames.VE,
+      StatusCodes.invalidId,
+      errorMessages.invalid + requestedObjects.board
+    );
   const board = await getOneBoardDB(id);
   return board;
 };
@@ -54,9 +72,19 @@ export const addBoard = async (data: Board): Promise<Board> => {
  */
 
 export const updateBoard = async (id: string, data: Board): Promise<Board> => {
-  if (!validateID(id)) throw new Error('Invalid id');
+  if (!validateID(id))
+    throw new CustomErrors(
+      errorNames.VE,
+      StatusCodes.invalidId,
+      errorMessages.invalid + requestedObjects.board
+    );
   const updatedBoard = await updateBoardDB(id, data);
-  if(!updatedBoard) throw new Error('The board is undefined');
+  if (!updatedBoard)
+    throw new CustomErrors(
+      errorNames.NFE,
+      StatusCodes.notFound,
+      requestedObjects.board + errorMessages.notExist
+    );
   return updatedBoard;
 };
 
@@ -69,9 +97,12 @@ export const updateBoard = async (id: string, data: Board): Promise<Board> => {
  */
 
 export const deleteBoard = async (id: string): Promise<Board[]> => {
-  if (!validateID(id)) throw new Error('Invalid id');
+  if (!validateID(id))
+    throw new CustomErrors(
+      errorNames.VE,
+      StatusCodes.invalidId,
+      errorMessages.invalid + requestedObjects.board
+    );
   const boardsArray = await deleteBoardDB(id);
   return boardsArray;
 };
-
-

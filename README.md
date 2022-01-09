@@ -1,5 +1,11 @@
 # RS School REST service
 
+## Logging
+
+- In this application is implemented logging. The logging object is located in **src/logging/winston.log.ts**;
+- All logs are written to the file **all.txt**, the error logs are written to the file **error.txt**. Log files are located in **src/logging/logs**.
+- You can set the logging level. If you want it, you should change the enviroment variable _LOGGING_LEVEL_ in the file **.env**.
+
 ## Prerequisites
 
 - Git - [Download & Install Git](https://git-scm.com/downloads).
@@ -14,7 +20,7 @@ git clone {repository URL}
 ## Checkout to develop branch
 
 ```
-git checkout develop-REST-service-typescript
+git checkout develop-REST-service-logging
 ```
 
 ## Installing NPM modules

@@ -43,14 +43,17 @@ export const addBoardDB = async (data: Board): Promise<Board> => {
 };
 
 /**
- * Find Board object by id and update it with data parametr and return the updated Board object 
+ * Find Board object by id and update it with data parametr and return the updated Board object
  * @async
  * @param {string} id - The Board object id
  * @param {Board} data - Params to update Board object
  * @returns - The updated Board object or undefined
  */
 
-export const updateBoardDB = async (id: string, data: Board): Promise<Board | undefined> => {
+export const updateBoardDB = async (
+  id: string,
+  data: Board
+): Promise<Board | undefined> => {
   let updatedBoard;
   const { boards } = await db;
   checkExistence(boards, id, 'Board');

@@ -6,7 +6,8 @@ If you want to use Docker:
 
 - Open your IDE and run in terminal "git clone https://github.com/Ksarelto/nodejs2021Q4-service.git"
 - Run in terminal command "git checkout develop-REST-service-docker"
-- In command line run command "docker-compose up"
+- Run in terminal command "npm install"
+- Then run command "docker-compose up"
 
 If you want to download app image from Docker Hub:
 

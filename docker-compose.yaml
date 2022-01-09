@@ -39,10 +39,8 @@ services:
       - app_volume:/var/lib/postgresql/data
 
 volumes:
-  app_volume: null
+  app_volume: 
   logs:
-
-    null
 networks:
   app_network:
     driver: bridge

@@ -20,8 +20,8 @@ services:
       - ${PORT}:${PORT}
     volumes:
       - logs:/app/src/logging/logs
-      - ./:/app/
-      - /app/node_modules/
+      - .:/app/  
+      - /app/node_modules 
 
   postgres:
     container_name: app_database
@@ -39,10 +39,9 @@ services:
       - app_volume:/var/lib/postgresql/data
 
 volumes:
-  app_volume: null
+  app_volume:
   logs:
 
-    null
 networks:
-  app_network:
+ app_network:
     driver: bridge

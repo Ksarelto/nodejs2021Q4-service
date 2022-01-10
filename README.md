@@ -59,7 +59,7 @@ git clone {repository URL}
 ## Checkout to develop branch
 
 ```
-git checkout develop-REST-service-logging
+git checkout develop-REST-service-postgres
 ```
 
 ## Installing NPM modules
@@ -72,6 +72,8 @@ npm install
 
 #### Before running
 
+- If you want to use this app you need to install [PostgreSQL](https://www.postgresql.org)
+- Create your own database or use default **postgres** database
 - Set **POSTGRES** enviroments:
 
 ```

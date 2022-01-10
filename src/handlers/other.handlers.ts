@@ -1,4 +1,7 @@
-import { Context } from 'koa';
+/**
+ * @module handlers_other
+ */
+import { Request, Response } from 'express';
 import { StatusCodes } from '../common/constants';
 import { CustomErrors, errorNames } from '../common/errors.object';
 import Logger from '../logging/winston.log';
@@ -16,17 +19,22 @@ export const uncaughtExeptionsHandler = (err: Error): void => {
 
 /**
  * Catch unused request and send response messsage
- * @param {Context} ctx - Is an object that include request and response of server
+ * @param {Response} res - Is an object that include response of server
+ * @param {Request} req - Is an object that include request from user
  * @returns - undefined
  */
 
-export const notFoundHandler = async (ctx: Context): Promise<void> => {
-  const { originalUrl } = ctx;
+export const notFoundHandler = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const { originalUrl } = req;
   const notFoundUrl = new CustomErrors(
     errorNames.NFE,
     StatusCodes.notFound,
-    `http://${ctx.headers.host}${originalUrl} is not found`
+    `http://${req.headers.host}${originalUrl} is not found`
   );
   const message = createErrorMessage(notFoundUrl);
   Logger.warn(message);
+  res.status(StatusCodes.notFound).json(notFoundUrl.message);
 };

@@ -1,7 +1,7 @@
 /**
  * @module task_service
  */
-import { v4 as uuidv4 } from 'uuid';
+import { DeleteResult } from 'typeorm';
 import { StatusCodes } from '../../common/constants';
 import {
   CustomErrors,
@@ -41,29 +41,19 @@ export const getAllTasks = async (id: string): Promise<Task[]> => {
 /**
  * Validate params object, return the founded by id Task object
  * @async
- * @param {Record<string, string>} params The object with boardId and taskId
- * @throw - Throws Error if invalid boardId
+ * @param {string} id The taskId
  * @throw - Throws Error if invalid taskId
  * @returns - The Task object
  */
 
-export const getOneTask = async (
-  params: Record<string, string>
-): Promise<Task> => {
-  const { boardId, taskId } = params;
-  if (!validateID(boardId))
-    throw new CustomErrors(
-      errorNames.VE,
-      StatusCodes.invalidId,
-      errorMessages.invalid + requestedObjects.board
-    );
-  if (!validateID(taskId))
+export const getOneTask = async (id: string): Promise<Task> => {
+  if (!validateID(id))
     throw new CustomErrors(
       errorNames.VE,
       StatusCodes.invalidId,
       errorMessages.invalid + requestedObjects.task
     );
-  const oneTask = await getOneTaskDB(params);
+  const oneTask = await getOneTaskDB(id);
   return oneTask;
 };
 
@@ -77,9 +67,13 @@ export const getOneTask = async (
  */
 
 export const addTask = async (id: string, data: Task): Promise<Task> => {
-  if (!validateID(id)) throw new Error('Invalid board id');
-  const taskId = uuidv4();
-  const newTask = { ...data, id: taskId, boardId: id };
+  if (!validateID(id))
+    throw new CustomErrors(
+      errorNames.VE,
+      StatusCodes.invalidId,
+      errorMessages.invalid + requestedObjects.task
+    );
+  const newTask = { ...data, boardId: id };
   const addedTask = await addTaskDB(newTask);
   return addedTask;
 };
@@ -91,7 +85,6 @@ export const addTask = async (id: string, data: Task): Promise<Task> => {
  * @param {Task} data Data to update Task object
  * @throw - Throws Error if invalid boardId
  * @throw - Throws Error if invalid taskId
- * @throw - Throws Error if updated task is undefined
  * @returns - The updated Task object
  */
 
@@ -113,12 +106,6 @@ export const updateTask = async (
       errorMessages.invalid + requestedObjects.task
     );
   const updatedTask = await updateTaskDB(params, data);
-  if (!updatedTask)
-    throw new CustomErrors(
-      errorNames.NFE,
-      StatusCodes.notFound,
-      requestedObjects.task + errorMessages.notExist
-    );
   return updatedTask;
 };
 
@@ -133,7 +120,7 @@ export const updateTask = async (
 
 export const deleteTask = async (
   params: Record<string, string>
-): Promise<Task[]> => {
+): Promise<DeleteResult> => {
   const { boardId, taskId } = params;
   if (!validateID(boardId))
     throw new CustomErrors(

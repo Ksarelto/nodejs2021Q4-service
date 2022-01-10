@@ -1,9 +1,36 @@
 /**
  * @module task_memory_methods
  */
+import { DeleteResult, getRepository } from 'typeorm';
 import { Task } from '../../common/types';
-import { db } from '../../../db/db';
-import { checkExistence } from '../../common/utils';
+import { EntTask } from '../../typeorm/entities/task.entity';
+import { EntBoard } from '../../typeorm/entities/board.entity';
+import {
+  CustomErrors,
+  errorMessages,
+  errorNames,
+  requestedObjects,
+} from '../../common/errors.object';
+import { StatusCodes } from '../../common/constants';
+
+/**
+ * Function generate correct task object for response
+ * @param {EntTask} task EntTask object
+ * @returns New generated Task object
+ */
+
+const generateTaskObject = (task: EntTask): Task => {
+  const boardId = task.boardId.id;
+  const userId = task.userId ? task.userId.id : null;
+  if (boardId) {
+    return { ...task, boardId, userId };
+  }
+  throw new CustomErrors(
+    errorNames.VE,
+    StatusCodes.invalidId,
+    errorMessages.invalid + requestedObjects.task
+  );
+};
 
 /**
  * Get Boards and Tasks from database, find Tasks with the same boardId, return them
@@ -13,10 +40,10 @@ import { checkExistence } from '../../common/utils';
  */
 
 export const getAllTasksDB = async (id: string): Promise<Task[]> => {
-  const { boards, tasks } = await db;
-  checkExistence(boards, id, 'Board');
-  const choosedTasks = tasks.filter((task: Task) => task.boardId === id);
-  return choosedTasks;
+  const allTasks = await getRepository(EntTask).find();
+  const searchedTasks = allTasks.filter((task) => task.boardId.id === id);
+  const tasks = searchedTasks.map((task: EntTask) => generateTaskObject(task));
+  return tasks;
 };
 
 /**
@@ -26,14 +53,10 @@ export const getAllTasksDB = async (id: string): Promise<Task[]> => {
  * @returns - The searched Task object
  */
 
-export const getOneTaskDB = async (
-  params: Record<string, string>
-): Promise<Task> => {
-  const { boards, tasks } = await db;
-  const { boardId, taskId } = params;
-  checkExistence(boards, boardId, 'Board');
-  const foundedTask = checkExistence(tasks, taskId, 'Task');
-  return foundedTask as Task;
+export const getOneTaskDB = async (id: string): Promise<Task> => {
+  const task = await getRepository(EntTask).findOneOrFail(id);
+  const resultTask = generateTaskObject(task);
+  return resultTask;
 };
 
 /**
@@ -44,8 +67,12 @@ export const getOneTaskDB = async (
  */
 
 export const addTaskDB = async (data: Task) => {
-  await db.tasks.push(data);
-  return data;
+  const board = await getRepository(EntBoard).findOneOrFail({
+    id: data.boardId,
+  });
+  const newTask = { ...data, boardId: board, userId: null };
+  const savedTask = await getRepository(EntTask).save(newTask);
+  return { ...savedTask, boardId: data.boardId };
 };
 
 /**
@@ -59,22 +86,13 @@ export const addTaskDB = async (data: Task) => {
 export const updateTaskDB = async (
   params: Record<string, string>,
   data: Task
-): Promise<Task | undefined> => {
-  let updatedTask;
-  const { tasks, boards } = await db;
+): Promise<Task> => {
   const { boardId, taskId } = params;
-  checkExistence(boards, boardId, 'Board');
-  checkExistence(tasks, taskId, 'Task');
-  const updatedTasks = tasks.map((task: Task) => {
-    if (task.id === taskId) {
-      updatedTask = { ...data, id: task.id };
-      return updatedTask;
-    }
-    return task;
-  });
-
-  db.tasks = updatedTasks;
-  return updatedTask;
+  await getRepository(EntBoard).findOneOrFail(boardId);
+  const task = await getRepository(EntTask).findOneOrFail(taskId);
+  const newTask = { ...data, boardId: task.boardId, userId: task.userId };
+  const updatedTask = await getRepository(EntTask).save(newTask);
+  return generateTaskObject(updatedTask);
 };
 
 /**
@@ -86,12 +104,9 @@ export const updateTaskDB = async (
 
 export const deleteTaskDB = async (
   params: Record<string, string>
-): Promise<Task[]> => {
-  const { tasks, boards } = await db;
+): Promise<DeleteResult> => {
   const { boardId, taskId } = params;
-  checkExistence(boards, boardId, 'Board');
-  checkExistence(tasks, taskId, 'Task');
-  const newTasksArray = tasks.filter((task: Task) => task.id !== taskId);
-  db.tasks = newTasksArray;
-  return newTasksArray;
+  await getRepository(EntBoard).findOneOrFail(boardId);
+  const deletedTask = await getRepository(EntTask).delete(taskId);
+  return deletedTask;
 };

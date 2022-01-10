@@ -1,5 +1,4 @@
 import { Entity, Column, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-// eslint-disable-next-line import/no-cycle
 import { EntBoard } from './board.entity';
 
 @Entity()

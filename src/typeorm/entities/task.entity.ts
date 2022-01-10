@@ -1,5 +1,3 @@
-/* eslint-disable import/no-cycle */
-
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { EntBoard } from './board.entity';
 import { EntUser } from './user.entity';

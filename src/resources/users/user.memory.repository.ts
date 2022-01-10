@@ -2,9 +2,9 @@
  * @module users_memory_methods
  */
 
-import { db } from '../../../db/db';
-import { Task, User } from '../../common/types';
-import { checkExistence } from '../../common/utils';
+import { DeleteResult, getRepository } from 'typeorm';
+import { User } from '../../common/types';
+import { EntUser } from '../../typeorm/entities/user.entity';
 
 /**
  * Get all User`s objects from database and return them
@@ -13,8 +13,8 @@ import { checkExistence } from '../../common/utils';
  */
 
 export const getAllDB = async (): Promise<User[]> => {
-  const allUsers = await db.users;
-  return allUsers;
+  const users = await getRepository(EntUser).find();
+  return users;
 };
 
 /**
@@ -26,10 +26,8 @@ export const getAllDB = async (): Promise<User[]> => {
  */
 
 export const getOneDB = async (id: string): Promise<User> => {
-  const { users } = await db;
-  const foundedUser = users.find((user: User) => user.id === id);
-  if (!foundedUser) throw new Error('User is not exist');
-  return foundedUser;
+  const user = await getRepository(EntUser).findOneOrFail(id);
+  return user;
 };
 
 /**
@@ -40,9 +38,8 @@ export const getOneDB = async (id: string): Promise<User> => {
  */
 
 export const addUserDB = async (data: User): Promise<User> => {
-  const { users } = await db;
-  db.users = [...users, data];
-  return data;
+  const user = await getRepository(EntUser).save(data);
+  return user;
 };
 
 /**
@@ -50,24 +47,13 @@ export const addUserDB = async (data: User): Promise<User> => {
  * @async
  * @param {string} id - Is an id of updated User
  * @param {User} data - Is an object with data of updated User
+ * @throw - Throws Error if User object is not found
  * @returns - The updated User object
  */
 
-export const updateUserDB = async (
-  id: string,
-  data: User
-): Promise<User | undefined> => {
-  const { users } = await db;
-  checkExistence(users, id, 'User');
-  const updatedUsers = users.map((user: User) => {
-    if (user.id === id) {
-      return { ...data, id: user.id };
-    }
-    return user;
-  });
-
-  db.users = updatedUsers;
-  const updatedUser = updatedUsers.find((user) => user.id === id);
+export const updateUserDB = async (id: string, data: User): Promise<User> => {
+  await getRepository(EntUser).findOneOrFail(id);
+  const updatedUser = await getRepository(EntUser).save(data);
   return updatedUser;
 };
 
@@ -78,15 +64,7 @@ export const updateUserDB = async (
  * @returns - The new array of Users objects
  */
 
-export const deleteUserDB = async (id: string): Promise<User[]> => {
-  const { users, tasks } = await db;
-  checkExistence(users, id, 'User');
-  const newUsersArray = users.filter((user: User) => user.id !== id);
-  const newTasksArray = tasks.map((task: Task) => {
-    if (task.userId === id) return { ...task, userId: null };
-    return task;
-  });
-  db.users = newUsersArray;
-  db.tasks = newTasksArray;
-  return newUsersArray;
+export const deleteUserDB = async (id: string): Promise<DeleteResult> => {
+  const deletedUser = await getRepository(EntUser).delete(id);
+  return deletedUser;
 };

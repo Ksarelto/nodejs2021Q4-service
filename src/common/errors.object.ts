@@ -37,4 +37,8 @@ export const errorNames = {
 export const errorMessages = {
   invalid: 'Invalid id of ',
   notExist: ' is not exist',
+  invalidPass: 'Invalid user password',
+  errorToken: 'JWT token was not set',
+  emptyToken: 'There is no token in request headers!',
+  invalidToken: 'This token is invalid',
 };

@@ -12,7 +12,7 @@ At first check that you have already install **Docker** application, if not inst
 
 - Run in terminal command
 
-  > git checkout develop-REST-service-postgres
+  > git checkout develop-REST-service-jwt
 
 - Run in terminal command
 
@@ -33,7 +33,7 @@ At first check that you have already install **Docker** application, if not inst
 
 - Enter command in terminal
 
-  > npm run test
+  > npm run test:auth
 
 ---
 
@@ -59,7 +59,7 @@ git clone {repository URL}
 ## Checkout to develop branch
 
 ```
-git checkout develop-REST-service-postgres
+git checkout develop-REST-service-jwt
 ```
 
 ## Installing NPM modules
@@ -105,13 +105,13 @@ After application running open new terminal and enter:
 To run all tests:
 
 ```
-npm test
+npm test:auth
 ```
 
 To run only one of all test suites (users, boards or tasks)
 
 ```
-npm test <suite name>
+npm test:auth <suite name>
 ```
 
 ---

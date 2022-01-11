@@ -3,6 +3,7 @@
  */
 
 import { DeleteResult } from 'typeorm';
+import bcrypt from 'bcrypt';
 import { StatusCodes } from '../../common/constants';
 import {
   CustomErrors,
@@ -54,7 +55,10 @@ export const getOne = async (id: string): Promise<User> => {
  */
 
 export const addUser = async (data: User): Promise<User> => {
-  const addedUser = await addUserDB(data);
+  const passwordStrength = 7;
+  const hashPassword = bcrypt.hashSync(data.password, passwordStrength);
+  const newUser = { ...data, password: hashPassword };
+  const addedUser = await addUserDB(newUser);
   return addedUser;
 };
 

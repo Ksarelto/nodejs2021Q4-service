@@ -2,7 +2,7 @@
  * @module data_base
  */
 
-import { DataBase } from "../src/common/types";
+import { DataBase } from '../src/common/types';
 
 /**
  * This is a local DataBase object
@@ -12,5 +12,5 @@ import { DataBase } from "../src/common/types";
 export const db: DataBase = {
   users: [],
   boards: [],
-  tasks: []
-}
+  tasks: [],
+};

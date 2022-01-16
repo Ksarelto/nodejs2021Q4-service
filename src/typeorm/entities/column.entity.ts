@@ -1,5 +1,5 @@
 import { Entity, Column, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { EntBoard } from './board.entity';
+import type { EntBoard } from './board.entity';
 
 @Entity()
 export class EntColumn {
@@ -12,7 +12,7 @@ export class EntColumn {
   @Column()
   order!: number;
 
-  @ManyToOne(() => EntBoard, (board: EntBoard) => board.columns, {
+  @ManyToOne('EntBoard', 'columns', {
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE',
   })

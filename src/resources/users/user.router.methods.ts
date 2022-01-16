@@ -56,7 +56,7 @@ export const userRouterGetOne = async (
 ): Promise<void> => {
   try {
     const { userId } = req.params;
-    const user = await getOne(userId);
+    const user = await getOne(userId as string);
     successResponseHandler(res, req, toResponse(user), StatusCodes.successCode);
   } catch (err) {
     next(err);
@@ -108,7 +108,7 @@ export const userRouterPut = async (
   try {
     const { userId } = req.params;
     const { body } = req;
-    const response = await updateUser(userId, body);
+    const response = await updateUser(userId as string, body);
     successResponseHandler(
       res,
       req,
@@ -136,7 +136,7 @@ export const userRouterDelete = async (
 ): Promise<void> => {
   try {
     const { userId } = req.params;
-    await deleteUser(userId);
+    await deleteUser(userId as string);
     successResponseHandler(res, req, null, StatusCodes.successDelete);
   } catch (err) {
     next(err);

@@ -20,7 +20,7 @@ At first check that you have already install **Docker** application, if not inst
 
 - Then run command
 
-  > docker-compose up
+  > docker-compose up -d
 
 - The server will be availavle on PORT 4000
 
@@ -29,7 +29,7 @@ At first check that you have already install **Docker** application, if not inst
 - Run application with Docker
 - Run in terminal command
 
-  > docker exec -i -t {ID of docker container with application} sh
+  > docker-compose exec app sh
 
 - Enter command in terminal
 

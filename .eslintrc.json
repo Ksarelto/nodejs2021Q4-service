@@ -36,7 +36,6 @@
   ],
   "rules": {
     "max-len": ["error", { "code": 200 }],
-    "import/no-cycle": "off",
     "node/no-missing-import": ["error", {
         "allowModules": [],
         "tryExtensions": [".ts", ".json", ".node", ".d.ts", ".js"]

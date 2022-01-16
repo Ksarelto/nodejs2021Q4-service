@@ -74,9 +74,11 @@ app.use(notFoundHandler);
  * @returns - undefined
  */
 
-app.use(async (err: Error, req: Request, res: Response, next: NextFunction) => {
-  errorResponseHandler(err, res);
-  next();
-});
+app.use(
+  async (err: Error, _req: Request, res: Response, next: NextFunction) => {
+    errorResponseHandler(err, res);
+    next();
+  }
+);
 
 export default app;

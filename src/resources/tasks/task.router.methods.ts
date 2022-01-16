@@ -28,7 +28,7 @@ export const taskRouterGetAll = async (
 ): Promise<void> => {
   try {
     const { boardId } = req.params;
-    const tasks = await getAllTasks(boardId);
+    const tasks = await getAllTasks(boardId as string);
     successResponseHandler(res, req, tasks, StatusCodes.successCode);
   } catch (err) {
     next(err);
@@ -51,7 +51,7 @@ export const taskRouterGetOne = async (
 ): Promise<void> => {
   try {
     const { taskId } = req.params;
-    const task = await getOneTask(taskId);
+    const task = await getOneTask(taskId as string);
     successResponseHandler(res, req, task, StatusCodes.successCode);
   } catch (err) {
     next(err);
@@ -75,7 +75,7 @@ export const taskRouterPost = async (
   try {
     const { body } = req;
     const { boardId } = req.params;
-    const task = await addTask(boardId, body);
+    const task = await addTask(boardId as string, body);
     successResponseHandler(res, req, task, StatusCodes.successCreate);
   } catch (err) {
     next(err);

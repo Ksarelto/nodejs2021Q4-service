@@ -51,7 +51,7 @@ export const boardRouterGetOne = async (
 ): Promise<void> => {
   try {
     const { boardId } = req.params;
-    const board = await getOneBoard(boardId);
+    const board = await getOneBoard(boardId as string);
     successResponseHandler(res, req, board, StatusCodes.successCode);
   } catch (err) {
     next(err);
@@ -98,7 +98,7 @@ export const boardRouterPut = async (
   try {
     const { boardId } = req.params;
     const { body } = req;
-    const board = await updateBoard(boardId, body);
+    const board = await updateBoard(boardId as string, body);
     successResponseHandler(res, req, board, StatusCodes.successCode);
   } catch (err) {
     next(err);
@@ -121,7 +121,7 @@ export const boardRouterDelete = async (
 ): Promise<void> => {
   try {
     const { boardId } = req.params;
-    const board = await deleteBoard(boardId);
+    const board = await deleteBoard(boardId as string);
     successResponseHandler(res, req, board, StatusCodes.successDelete);
   } catch (err) {
     next(err);

@@ -107,6 +107,6 @@ export const deleteTaskDB = async (
 ): Promise<DeleteResult> => {
   const { boardId, taskId } = params;
   await getRepository(EntBoard).findOneOrFail(boardId);
-  const deletedTask = await getRepository(EntTask).delete(taskId);
+  const deletedTask = await getRepository(EntTask).delete(taskId as string);
   return deletedTask;
 };

@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { EntTask } from './task.entity';
+import type { EntTask } from './task.entity';
 
 @Entity()
 export class EntUser {
@@ -15,6 +15,6 @@ export class EntUser {
   @Column()
   password!: string;
 
-  @OneToMany(() => EntTask, (task) => task.userId)
+  @OneToMany('EntTask', 'userId')
   tasks!: EntTask[];
 }

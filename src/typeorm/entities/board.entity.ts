@@ -1,6 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { EntColumn } from './column.entity';
-import { EntTask } from './task.entity';
+import type { EntColumn } from './column.entity';
+import type { EntTask } from './task.entity';
 
 @Entity()
 export class EntBoard {
@@ -10,12 +10,12 @@ export class EntBoard {
   @Column()
   title!: string;
 
-  @OneToMany(() => EntColumn, (column: EntColumn) => column.board, {
+  @OneToMany('EntColumn', 'board', {
     eager: true,
     cascade: true,
   })
   columns!: EntColumn[];
 
-  @OneToMany(() => EntTask, (task) => task.boardId)
+  @OneToMany('EntTask', 'boardId')
   tasks!: EntTask[];
 }

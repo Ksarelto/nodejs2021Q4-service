@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-import { EntBoard } from './board.entity';
-import { EntUser } from './user.entity';
+import type { EntBoard } from './board.entity';
+import type { EntUser } from './user.entity';
 
 @Entity()
 export class EntTask {
@@ -19,14 +19,14 @@ export class EntTask {
   @Column({ type: 'uuid', nullable: true, name: 'column_id' })
   columnId!: string | null;
 
-  @ManyToOne(() => EntBoard, (board) => board.tasks, {
+  @ManyToOne('EntBoard', 'tasks', {
     eager: true,
     onUpdate: 'CASCADE',
     onDelete: 'CASCADE',
   })
   boardId!: EntBoard;
 
-  @ManyToOne(() => EntUser, (user) => user.tasks, {
+  @ManyToOne('EntUser', 'tasks', {
     eager: true,
     nullable: true,
     onDelete: 'SET NULL',

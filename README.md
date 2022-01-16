@@ -37,6 +37,9 @@ At first check that you have already install **Docker** application, if not inst
 
 ---
 
+If you want to check reloading of container assembly, you need to change command **npm start** from **nodemon -L src/server.ts** to
+**nodemon -L --exitcrash src/server.ts**
+
 ## Logging
 
 - In this application is implemented logging. The logging object is located in **src/logging/winston.log.ts**;

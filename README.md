@@ -2,23 +2,40 @@
 
 ## Docker
 
-If you want to use Docker:
+At first check that you have already install **Docker** application, if not install it [Docker](https://www.docker.com/get-started).
 
-- Open your IDE and run in terminal "git clone https://github.com/Ksarelto/nodejs2021Q4-service.git"
-- Run in terminal command "git checkout develop-REST-service-docker"
-- Run in terminal command "npm install"
-- Then run command "docker-compose up"
+#### If you want to use Docker:
 
-If you want to download app image from Docker Hub:
+- Open your IDE and run in terminal
 
-- Open your IDE and run in terminal "docker pull artsiomusc72/rest-service:latest"
-- Run in terminal command "docker run -p 4000:4000 artsiomusc72/rest-service"
+  > git clone https://github.com/Ksarelto/nodejs2021Q4-service.git
 
-If you want to test application in Docker container:
+- Run in terminal command
+
+  > git checkout develop-REST-service-postgres
+
+- Run in terminal command
+
+  > npm install
+
+- Then run command
+
+  > docker-compose up -d
+
+- The server will be availavle on PORT 4000
+
+#### If you want to test application in Docker container:
 
 - Run application with Docker
-- Run in terminal command "docker exec -i -t {ID of docker container with application} sh
-- Enter command in terminal "npm run test"
+- Run in terminal command
+
+  > docker-compose exec app sh
+
+- Enter command in terminal
+
+  > npm run test
+
+---
 
 If you want to check reloading of container assembly, you need to change command **npm start** from **nodemon -L src/server.ts** to
 **nodemon -L --exitcrash src/server.ts**
@@ -28,6 +45,8 @@ If you want to check reloading of container assembly, you need to change command
 - In this application is implemented logging. The logging object is located in **src/logging/winston.log.ts**;
 - All logs are written to the file **all.txt**, the error logs are written to the file **error.txt**. Log files are located in **src/logging/logs**.
 - You can set the logging level. If you want it, you should change the enviroment variable _LOGGING_LEVEL_ in the file **.env**.
+
+---
 
 ## Prerequisites
 
@@ -43,7 +62,7 @@ git clone {repository URL}
 ## Checkout to develop branch
 
 ```
-git checkout develop-REST-service-logging
+git checkout develop-REST-service-postgres
 ```
 
 ## Installing NPM modules
@@ -54,9 +73,27 @@ npm install
 
 ## Running application
 
+#### Before running
+
+- If you want to use this app you need to install [PostgreSQL](https://www.postgresql.org)
+- Create your own database or use default **postgres** database
+- Set **POSTGRES** enviroments:
+
+```
+POSTGRES_HOST=localhost
+POSTRGES_PORT={set PORT that you use for postgresql server localy}
+POSTGRES_NAME={set name of postgresql user}
+POSTGRES_PASSWORD={set password to your local postgresql server}
+POSTGRES_DB={set name of your created database}
+```
+
+- Then you can run app
+
 ```
 npm start
 ```
+
+---
 
 ## Testing
 
@@ -80,9 +117,13 @@ To run only one of all test suites (users, boards or tasks)
 npm test <suite name>
 ```
 
+---
+
 ## Usage
 
 If you want to test an application by yourself, you can use testing API application like <kbd>Postman</kbd>.
+
+---
 
 ## TypeDoc
 

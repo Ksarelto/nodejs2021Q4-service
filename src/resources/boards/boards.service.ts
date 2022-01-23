@@ -2,7 +2,7 @@
  * @module boards_service
  */
 
-import { v4 as uuidv4 } from 'uuid';
+import { DeleteResult } from 'typeorm';
 import { StatusCodes } from '../../common/constants';
 import {
   CustomErrors,
@@ -12,6 +12,7 @@ import {
 } from '../../common/errors.object';
 import { Board } from '../../common/types';
 import { validateID } from '../../common/utils';
+import { EntBoard } from '../../typeorm/entities/board.entity';
 import {
   getAllBoardsDB,
   getOneBoardDB,
@@ -26,17 +27,17 @@ import {
  * @returns - The array of Boards objects
  */
 
-export const getAllBoards = () => getAllBoardsDB();
+export const getAllBoards = async () => getAllBoardsDB();
 
 /**
  * Validate the id, pass the id to getOneBoardDB func and return The Board object
  * @async
  * @param {string} id The id of Board object
  * @throw - Throws Error if invalid id
- * @returns - The Board object
+ * @returns - The EntBoard object
  */
 
-export const getOneBoard = async (id: string): Promise<Board> => {
+export const getOneBoard = async (id: string): Promise<EntBoard> => {
   if (!validateID(id))
     throw new CustomErrors(
       errorNames.VE,
@@ -55,9 +56,7 @@ export const getOneBoard = async (id: string): Promise<Board> => {
  */
 
 export const addBoard = async (data: Board): Promise<Board> => {
-  const id = uuidv4();
-  const newBoard = { ...data, id };
-  const addedBoard = await addBoardDB(newBoard);
+  const addedBoard = await addBoardDB(data);
   return addedBoard;
 };
 
@@ -67,7 +66,6 @@ export const addBoard = async (data: Board): Promise<Board> => {
  * @param {string} id The id of Board object
  * @param {Board} data Data to update Board
  * @throw - Throws Error if invalid id
- * @throw - Throws Error if board is undefined
  * @returns - The updated Board object
  */
 
@@ -79,12 +77,6 @@ export const updateBoard = async (id: string, data: Board): Promise<Board> => {
       errorMessages.invalid + requestedObjects.board
     );
   const updatedBoard = await updateBoardDB(id, data);
-  if (!updatedBoard)
-    throw new CustomErrors(
-      errorNames.NFE,
-      StatusCodes.notFound,
-      requestedObjects.board + errorMessages.notExist
-    );
   return updatedBoard;
 };
 
@@ -93,10 +85,10 @@ export const updateBoard = async (id: string, data: Board): Promise<Board> => {
  * @async
  * @param {string} id The id of Board object
  * @throw - Throws Error if invalid id
- * @returns - The new array of Board`s objects
+ * @returns - The Deleted result
  */
 
-export const deleteBoard = async (id: string): Promise<Board[]> => {
+export const deleteBoard = async (id: string): Promise<DeleteResult> => {
   if (!validateID(id))
     throw new CustomErrors(
       errorNames.VE,

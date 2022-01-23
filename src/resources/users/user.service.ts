@@ -2,7 +2,7 @@
  * @module users_service
  */
 
-import { v4 as uuidv4 } from 'uuid';
+import { DeleteResult } from 'typeorm';
 import { StatusCodes } from '../../common/constants';
 import {
   CustomErrors,
@@ -25,7 +25,7 @@ import {
  * @returns The array of Users
  */
 
-export const getAll = () => getAllDB();
+export const getAll = async () => getAllDB();
 
 /**
  * Validate id and return the User object
@@ -54,9 +54,7 @@ export const getOne = async (id: string): Promise<User> => {
  */
 
 export const addUser = async (data: User): Promise<User> => {
-  const id = uuidv4();
-  const newUser = { ...data, id };
-  const addedUser = await addUserDB(newUser);
+  const addedUser = await addUserDB(data);
   return addedUser;
 };
 
@@ -66,7 +64,6 @@ export const addUser = async (data: User): Promise<User> => {
  * @param {string} id - The id of User object
  * @param {User} data - Data for update User object
  * @throws - Throw Error if invalid id
- * @throws - Throw Error if updated user is not exist
  * @returns - The updated User object
  */
 
@@ -78,12 +75,6 @@ export const updateUser = async (id: string, data: User): Promise<User> => {
       errorMessages.invalid + requestedObjects.user
     );
   const updatedUser = await updateUserDB(id, data);
-  if (!updatedUser)
-    throw new CustomErrors(
-      errorNames.NFE,
-      StatusCodes.notFound,
-      requestedObjects.user + errorMessages.notExist
-    );
   return updatedUser;
 };
 
@@ -92,9 +83,9 @@ export const updateUser = async (id: string, data: User): Promise<User> => {
  * @async
  * @param {string} id - The id of User object
  * @throws - Throw Error if invalid id
- * @returns - The new User array
+ * @returns - The delete result
  */
-export const deleteUser = async (id: string): Promise<User[]> => {
+export const deleteUser = async (id: string): Promise<DeleteResult> => {
   if (!validateID(id))
     throw new CustomErrors(
       errorNames.VE,

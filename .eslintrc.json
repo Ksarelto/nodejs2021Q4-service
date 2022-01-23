@@ -35,10 +35,10 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
-    "max-len": ["error", { "code": 160 }],
+    "max-len": ["error", { "code": 200 }],
     "node/no-missing-import": ["error", {
         "allowModules": [],
-        "tryExtensions": [".ts", ".json", ".node", ".d.ts"]
+        "tryExtensions": [".ts", ".json", ".node", ".d.ts", ".js"]
     }],
     "linebreak-style": "off",
     "node/no-unsupported-features/es-syntax": "off",

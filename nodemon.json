@@ -2,6 +2,7 @@
   "verbose": false,
   "ignore": ["node_modules", "test"],
   "watch": ["src"],
+  "legacyWatch": true,
   "exec": "npx ts-node ./src/server.ts",
   "ext": "ts, js"
 }

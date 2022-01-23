@@ -56,3 +56,43 @@ export const { AUTH_MODE } = process.env;
  */
 
 export const { LOGGING_LEVEL } = process.env;
+
+/**
+ * @name POSTRGES_HOST
+ * @constant POSTRGES_HOST Host of postgresql database
+ * @type {string}
+ */
+
+export const { POSTRGES_HOST } = process.env;
+
+/**
+ * @name POSTRGES_PORT
+ * @constant POSTRGES_PORT Port of postgresql database
+ * @type {number}
+ */
+
+export const { POSTRGES_PORT } = process.env;
+
+/**
+ * @name POSTGRES_NAME
+ * @constant POSTGRES_NAME NAme of the postgresql database
+ * @type {string}
+ */
+
+export const { POSTGRES_NAME } = process.env;
+
+/**
+ * @name POSTGRES_PASSWORD
+ * @constant POSTGRES_PASSWORD Password of postgresql database
+ * @type {string}
+ */
+
+export const { POSTGRES_PASSWORD } = process.env;
+
+/**
+ * @name POSTGRES_DB
+ * @constant POSTGRES_DB Type of the database
+ * @type {string}
+ */
+
+export const { POSTGRES_DB } = process.env;

@@ -1,16 +1,19 @@
 /**
+ * @module handler_utils
+ */
+import { Response, Request } from 'express';
+import { CustomErrors } from '../common/errors.object';
+
+/**
  * Create an info message
- * @param {Context} ctx - Is an object that include request and response of server
+ * @param {Response} res - Is an object that include response of server
+ * @param {Request} req - Is an object that include request from user
  * @returns A message of type string
  */
 
-import { Context } from 'koa';
-import { CustomErrors } from '../common/errors.object';
-
-export const createInfoMessage = (ctx: Context): string => {
-  const { params, method } = ctx;
-  const { body, url } = ctx.request;
-  const { statusCode } = ctx.res;
+export const createInfoMessage = (res: Response, req: Request): string => {
+  const { params, method, body, url } = req;
+  const { statusCode } = res;
   return `
   Method: ${JSON.stringify(method)}
   URL: ${JSON.stringify(url)}

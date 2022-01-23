@@ -2,9 +2,9 @@
  * @module boards_memory_methods
  */
 
-import { db } from '../../../db/db';
-import { Board, Task } from '../../common/types';
-import { checkExistence } from '../../common/utils';
+import { DeleteResult, getRepository } from 'typeorm';
+import { Board } from '../../common/types';
+import { EntBoard } from '../../typeorm/entities/board.entity';
 
 /**
  * Get all Boards objects from database and return them
@@ -12,8 +12,8 @@ import { checkExistence } from '../../common/utils';
  * @returns - The array of Boards objects
  */
 
-export const getAllBoardsDB = async (): Promise<Board[]> => {
-  const allBoards = await db.boards;
+export const getAllBoardsDB = async (): Promise<EntBoard[]> => {
+  const allBoards = await getRepository(EntBoard).find();
   return allBoards;
 };
 
@@ -24,10 +24,9 @@ export const getAllBoardsDB = async (): Promise<Board[]> => {
  * @returns - The found Board object
  */
 
-export const getOneBoardDB = async (id: string): Promise<Board> => {
-  const { boards } = await db;
-  const foundedBoard = checkExistence(boards, id, 'Board');
-  return foundedBoard as Board;
+export const getOneBoardDB = async (id: string): Promise<EntBoard> => {
+  const board = await getRepository(EntBoard).findOneOrFail(id);
+  return board;
 };
 
 /**
@@ -38,8 +37,8 @@ export const getOneBoardDB = async (id: string): Promise<Board> => {
  */
 
 export const addBoardDB = async (data: Board): Promise<Board> => {
-  await db.boards.push(data);
-  return data;
+  const savedBoard = await getRepository(EntBoard).save(data);
+  return savedBoard;
 };
 
 /**
@@ -53,19 +52,9 @@ export const addBoardDB = async (data: Board): Promise<Board> => {
 export const updateBoardDB = async (
   id: string,
   data: Board
-): Promise<Board | undefined> => {
-  let updatedBoard;
-  const { boards } = await db;
-  checkExistence(boards, id, 'Board');
-  const updatedBoards = boards.map((board: Board) => {
-    if (board.id === id) {
-      updatedBoard = { ...data, id: board.id };
-      return updatedBoard;
-    }
-    return board;
-  });
-
-  db.boards = updatedBoards;
+): Promise<Board> => {
+  await getRepository(EntBoard).findOneOrFail(id);
+  const updatedBoard = await getRepository(EntBoard).save(data);
   return updatedBoard;
 };
 
@@ -77,12 +66,7 @@ export const updateBoardDB = async (
  * @returns - The Boards objects array without deleted Board
  */
 
-export const deleteBoardDB = async (id: string): Promise<Board[]> => {
-  const { boards, tasks } = await db;
-  checkExistence(boards, id, 'Board');
-  const newBoardsArray = boards.filter((board: Board) => board.id !== id);
-  const newTasksArray = tasks.filter((task: Task) => task.boardId !== id);
-  db.boards = newBoardsArray;
-  db.tasks = newTasksArray;
-  return newBoardsArray;
+export const deleteBoardDB = async (id: string): Promise<DeleteResult> => {
+  const deletedBoard = await getRepository(EntBoard).delete(id);
+  return deletedBoard;
 };

@@ -1,13 +1,25 @@
+import { createConnection } from 'typeorm';
 import { PORT } from './common/config';
 import app from './app';
+import 'reflect-metadata';
+import { uncaughtExeptionsHandler } from './handlers/other.handlers';
+import connections from './typeorm/ormconfig';
 
 /**
- * Koa "listen" method is starting listen the PORT
- * @remarks Method of Koa object(koa API)
- * @param {string} PORT the name of listened port
- * @param {callback} - callback that is called after port is listened
+ * Function to create connection with db and start the port
+ * @async
+ * @return - undefined
  */
 
-app.listen(PORT, () =>
-  console.log(`App is running on http://localhost:${PORT}`)
-);
+const setConnection = async () => {
+  try {
+    await createConnection(connections);
+    app.listen(PORT, () =>
+      console.log(`App is running on http://localhost:${PORT}`)
+    );
+  } catch (err) {
+    uncaughtExeptionsHandler(err as Error);
+  }
+};
+
+setConnection();

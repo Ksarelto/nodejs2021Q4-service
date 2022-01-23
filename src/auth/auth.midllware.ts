@@ -8,7 +8,11 @@ import {
   errorNames,
 } from '../common/errors.object';
 
-export const authCheck = (req: Request, _res: Response, next: NextFunction) => {
+export const authCheckMiddlware = (
+  req: Request,
+  _res: Response,
+  next: NextFunction
+) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
     if (!token)

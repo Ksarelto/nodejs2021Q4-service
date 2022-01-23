@@ -10,7 +10,7 @@ import {
   uncaughtExeptionsHandler,
 } from './handlers/other.handlers';
 import { errorResponseHandler } from './handlers/response.handlers';
-import { authCheck } from './auth/auth.check';
+import { authCheckMiddlware } from './auth/auth.midllware';
 import { loginRouter } from './resources/login/login.router';
 
 /**
@@ -64,9 +64,9 @@ app.use(async (req, res, next): Promise<void> => {
   next();
 });
 
-app.use('/users', authCheck, userRouter);
-app.use('/boards', authCheck, boardRouter);
-app.use('/boards', authCheck, tasksRouter);
+app.use('/users', authCheckMiddlware, userRouter);
+app.use('/boards', authCheckMiddlware, boardRouter);
+app.use('/boards', authCheckMiddlware, tasksRouter);
 app.use('/login', loginRouter);
 app.use(notFoundHandler);
 

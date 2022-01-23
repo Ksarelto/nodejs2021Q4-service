@@ -41,4 +41,5 @@ export const errorMessages = {
   errorToken: 'JWT token was not set',
   emptyToken: 'There is no token in request headers!',
   invalidToken: 'This token is invalid',
+  noUser: 'User with such login is not found',
 };

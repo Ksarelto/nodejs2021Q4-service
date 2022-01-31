@@ -73,3 +73,13 @@ export interface DataBase {
 export interface SearchedArray {
   id?: string;
 }
+
+export interface ILoginBody {
+  login: string;
+  password: string;
+}
+
+export interface IPayload {
+  id: string;
+  login: string;
+}

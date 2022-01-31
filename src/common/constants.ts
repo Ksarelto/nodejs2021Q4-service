@@ -14,6 +14,8 @@ export const StatusCodes = {
   successCode: 200,
   successDelete: 204,
   successCreate: 201,
+  invalidPassword: 403,
+  invalidToken: 401,
 };
 
 /**
@@ -49,4 +51,10 @@ export const LogColorsObject = {
   error: 'red',
   warn: 'yellow',
   http: 'magenta',
+};
+
+export const defaultAdmin = {
+  name: 'Admin',
+  login: 'admin',
+  password: 'admin',
 };

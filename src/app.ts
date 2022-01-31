@@ -10,6 +10,8 @@ import {
   uncaughtExeptionsHandler,
 } from './handlers/other.handlers';
 import { errorResponseHandler } from './handlers/response.handlers';
+import { authCheckMiddlware } from './auth/auth.midllware';
+import { loginRouter } from './resources/login/login.router';
 
 /**
  * @constant {express} app is an object of Express
@@ -62,9 +64,10 @@ app.use(async (req, res, next): Promise<void> => {
   next();
 });
 
-app.use('/users', userRouter);
-app.use('/boards', boardRouter);
-app.use('/boards', tasksRouter);
+app.use('/users', authCheckMiddlware, userRouter);
+app.use('/boards', authCheckMiddlware, boardRouter);
+app.use('/boards', authCheckMiddlware, tasksRouter);
+app.use('/login', loginRouter);
 app.use(notFoundHandler);
 
 /**

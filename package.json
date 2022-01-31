@@ -41,9 +41,11 @@
   "dependencies": {
     "@microsoft/tsdoc": "^0.13.2",
     "@microsoft/tsdoc-config": "^0.15.2",
+    "bcrypt": "^5.0.1",
     "cross-env": "7.0.3",
     "dotenv": "10.0.0",
     "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
     "ts-node": "^10.4.0",
@@ -54,7 +56,9 @@
     "yamljs": "0.3.0"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.6",
     "@types/node": "^16.11.11",
     "@types/uuid": "^8.3.3",
     "@types/winston": "^2.4.4",

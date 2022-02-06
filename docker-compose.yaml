@@ -5,7 +5,7 @@ services:
     container_name: app_container
     image: app
     build: .
-    command: npm run start
+    command: npm run start:dev
     restart: always
     depends_on:
       - postgres
@@ -20,6 +20,7 @@ services:
       - ${PORT}:${PORT}
     volumes:
       - logs:/app/src/logging/logs
+      - files:/app/src/routes/files/db
       - .:/app/  
       - /app/node_modules 
 
@@ -41,6 +42,7 @@ services:
 volumes:
   app_volume:
   logs:
+  files:
 
 networks:
  app_network:

@@ -16,6 +16,8 @@ export const setLogLevel = (level: string | undefined): string => {
       return 'error';
     case '2':
       return 'warn';
+    case '3':
+      return 'info';
     default:
       return 'http';
   }
@@ -40,7 +42,7 @@ const Logger = winston.createLogger({
         winston.format.printf((info) => {
           const { message, level } = info;
           return `${level}: ${message}`;
-        })
+        }),
       ),
     }),
 
@@ -56,13 +58,13 @@ const Logger = winston.createLogger({
           const { timestamp, message, level } = info;
           return `Creating time: ${timestamp}
 ${level.toUpperCase()}: ${message}`;
-        })
+        }),
       ),
     }),
     new winston.transports.File({
       filename: './src/logging/logs/all.txt',
       format: winston.format.printf(
-        (info) => `${info.level.toUpperCase()}: ${info.message}`
+        (info) => `${info.level.toUpperCase()}: ${info.message}`,
       ),
     }),
   ],
